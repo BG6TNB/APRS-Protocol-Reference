@@ -1,0 +1,29 @@
+{
+  "name": "aprs-protocol-reference",
+  "version": "1.0.0",
+  "description": "Modernized document based on APRS101.PDF",
+  "main": "index.md",
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BG6TNB/APRS-Protocol-Reference.git"
+  },
+  "keywords": [
+    "APRS"
+  ],
+  "author": "BG6TNB",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BG6TNB/APRS-Protocol-Reference/issues"
+  },
+  "homepage": "https://github.com/BG6TNB/APRS-Protocol-Reference#readme",
+  "devDependencies": {
+    "vitepress": "^1.0.0-rc.4",
+    "markdown-it-multimd-table": "^4.2.3"
+  }
+}

@@ -1,0 +1,714 @@
+[
+    {
+        "text": "THE STRUCTURE OF THIS SPECIFICATION",
+        "link": "/documents/the-structure-of-this-specification"
+    },
+    {
+        "text": "INTRODUCTION TO APRS",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "What is APRS?",
+                "link": "/documents/introduction-to-aprs/what-is-aprs"
+            },
+            {
+                "text": "APRS Features",
+                "link": "/documents/introduction-to-aprs/aprs-features"
+            }
+        ]
+    },
+    {
+        "text": "THE APRS DESIGN PHILOSOPHY",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "Net Cycle Time",
+                "link": "/documents/the-aprs-design-philosophy/net-cycle-time"
+            },
+            {
+                "text": "Packet Timing",
+                "link": "/documents/the-aprs-design-philosophy/packet-timing"
+            },
+            {
+                "text": "Generic Digipeating",
+                "link": "/documents/the-aprs-design-philosophy/generic-digipeating"
+            },
+            {
+                "text": "Communicating Map Views Unambiguously",
+                "link": "/documents/the-aprs-design-philosophy/communicating-map-views-unambiguously"
+            }
+        ]
+    },
+    {
+        "text": "APRS AND AX.25",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "Protocols",
+                "link": "/documents/aprs-and-ax25/protocols"
+            },
+            {
+                "text": "The AX.25 Frame",
+                "link": "/documents/aprs-and-ax25/the-ax25-frame"
+            }
+        ]
+    },
+    {
+        "text": "APRS DATA IN THE AX.25 DESTINATION AND SOURCE ADDRESS FIELDS",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "The AX.25 Destination Address Field",
+                "link": "/documents/aprs-data-in-the-ax25-destination-and-source-address-fields/the-ax25-destination-address-field"
+            },
+            {
+                "text": "Generic APRS Destination Addresses",
+                "link": "/documents/aprs-data-in-the-ax25-destination-and-source-address-fields/generic-aprs-destination-addresses"
+            },
+            {
+                "text": "Generic APRS Address with Symbol",
+                "link": "/documents/aprs-data-in-the-ax25-destination-and-source-address-fields/generic-aprs-address-with-symbol"
+            },
+            {
+                "text": "APRS Software Version Number",
+                "link": "/documents/aprs-data-in-the-ax25-destination-and-source-address-fields/aprs-software-version-number"
+            },
+            {
+                "text": "Mic-E Encoded Data",
+                "link": "/documents/aprs-data-in-the-ax25-destination-and-source-address-fields/mice-encoded-data"
+            },
+            {
+                "text": "Maidenhead Grid Locator in Destination Address",
+                "link": "/documents/aprs-data-in-the-ax25-destination-and-source-address-fields/maidenhead-grid-locator-in-destination-address"
+            },
+            {
+                "text": "Alternate Nets",
+                "link": "/documents/aprs-data-in-the-ax25-destination-and-source-address-fields/alternate-nets"
+            },
+            {
+                "text": "Generic APRS Digipeater Path",
+                "link": "/documents/aprs-data-in-the-ax25-destination-and-source-address-fields/generic-aprs-digipeater-path"
+            },
+            {
+                "text": "The AX.25 Source Address SSID to specify Symbols",
+                "link": "/documents/aprs-data-in-the-ax25-destination-and-source-address-fields/the-ax25-source-address-ssid-to-specify-symbols"
+            }
+        ]
+    },
+    {
+        "text": "APRS DATA IN THE AX.25 INFORMATION FIELD",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "Generic Data Format",
+                "link": "/documents/aprs-data-in-the-ax25-information-field/generic-data-format"
+            },
+            {
+                "text": "APRS Data Type Identifier",
+                "link": "/documents/aprs-data-in-the-ax25-information-field/aprs-data-type-identifier"
+            },
+            {
+                "text": "APRS Data and Data Extension",
+                "link": "/documents/aprs-data-in-the-ax25-information-field/aprs-data-and-data-extension"
+            },
+            {
+                "text": "Comment Field",
+                "link": "/documents/aprs-data-in-the-ax25-information-field/comment-field"
+            },
+            {
+                "text": "Base-91 Notation",
+                "link": "/documents/aprs-data-in-the-ax25-information-field/base91-notation"
+            },
+            {
+                "text": "APRS Data Units",
+                "link": "/documents/aprs-data-in-the-ax25-information-field/aprs-data-units"
+            }
+        ]
+    },
+    {
+        "text": "TIME AND POSITION FORMATS",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "Time Formats",
+                "link": "/documents/time-and-position-formats/time-formats"
+            },
+            {
+                "text": "Use of Timestamps",
+                "link": "/documents/time-and-position-formats/use-of-timestamps"
+            },
+            {
+                "text": "Latitude Format",
+                "link": "/documents/time-and-position-formats/latitude-format"
+            },
+            {
+                "text": "Longitude Format",
+                "link": "/documents/time-and-position-formats/longitude-format"
+            },
+            {
+                "text": "Position Coordinates",
+                "link": "/documents/time-and-position-formats/position-coordinates"
+            },
+            {
+                "text": "Position Ambiguity",
+                "link": "/documents/time-and-position-formats/position-ambiguity"
+            },
+            {
+                "text": "Default Null Position",
+                "link": "/documents/time-and-position-formats/default-null-position"
+            },
+            {
+                "text": "Maidenhead Locator (Grid Square)",
+                "link": "/documents/time-and-position-formats/maidenhead-locator-grid-square"
+            },
+            {
+                "text": "NMEA Data",
+                "link": "/documents/time-and-position-formats/nmea-data"
+            },
+            {
+                "text": "Altitude",
+                "link": "/documents/time-and-position-formats/altitude"
+            }
+        ]
+    },
+    {
+        "text": "APRS DATA EXTENSIONS",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "Course and Speed",
+                "link": "/documents/aprs-data-extensions/course-and-speed"
+            },
+            {
+                "text": "Wind Direction and Wind Speed",
+                "link": "/documents/aprs-data-extensions/wind-direction-and-wind-speed"
+            },
+            {
+                "text": "Power, Effective Antenna Height/Gain/Directivity",
+                "link": "/documents/aprs-data-extensions/power-effective-antenna-height-gain-directivity"
+            },
+            {
+                "text": "Range Circle Plot",
+                "link": "/documents/aprs-data-extensions/range-circle-plot"
+            },
+            {
+                "text": "Pre-Calculated Radio Range",
+                "link": "/documents/aprs-data-extensions/precalculated-radio-range"
+            },
+            {
+                "text": "Omni-DF Signal Strength",
+                "link": "/documents/aprs-data-extensions/omnidf-signal-strength"
+            },
+            {
+                "text": "Bearing and Number/Range/Quality",
+                "link": "/documents/aprs-data-extensions/bearing-and-number-range-quality"
+            },
+            {
+                "text": "Area Object Descriptor",
+                "link": "/documents/aprs-data-extensions/area-object-descriptor"
+            }
+        ]
+    },
+    {
+        "text": "POSITION AND DF REPORT DATA FORMATS",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "Position Reports",
+                "link": "/documents/position-and-df-report-data-formats/position-reports"
+            },
+            {
+                "text": "DF Reports",
+                "link": "/documents/position-and-df-report-data-formats/df-reports"
+            }
+        ]
+    },
+    {
+        "text": "COMPRESSED POSITION REPORT DATA FORMATS",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "The Advantages of Data Compression",
+                "link": "/documents/compressed-position-report-data-formats/the-advantages-of-data-compression"
+            },
+            {
+                "text": "Compressed Data Format",
+                "link": "/documents/compressed-position-report-data-formats/compressed-data-format"
+            },
+            {
+                "text": "Symbol",
+                "link": "/documents/compressed-position-report-data-formats/symbol"
+            },
+            {
+                "text": "Lat/Long Encoding",
+                "link": "/documents/compressed-position-report-data-formats/lat-long-encoding"
+            },
+            {
+                "text": "Lat/Long Decoding",
+                "link": "/documents/compressed-position-report-data-formats/lat-long-decoding"
+            },
+            {
+                "text": "Course/Speed, Pre-Calculated Radio Range and Altitude",
+                "link": "/documents/compressed-position-report-data-formats/course-speed-precalculated-radio-range-and-altitude"
+            },
+            {
+                "text": "The Compression Type (T) Byte",
+                "link": "/documents/compressed-position-report-data-formats/the-compression-type-t-byte"
+            },
+            {
+                "text": "Altitude",
+                "link": "/documents/compressed-position-report-data-formats/altitude"
+            },
+            {
+                "text": "New Trackers",
+                "link": "/documents/compressed-position-report-data-formats/new-trackers"
+            },
+            {
+                "text": "Old Trackers",
+                "link": "/documents/compressed-position-report-data-formats/old-trackers"
+            },
+            {
+                "text": "Compressed Report Formats",
+                "link": "/documents/compressed-position-report-data-formats/compressed-report-formats"
+            }
+        ]
+    },
+    {
+        "text": "MIC-E DATA FORMAT",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "Mic-E Data Format",
+                "link": "/documents/mice-data-format/mice-data-format"
+            },
+            {
+                "text": "Mic-E Data Payload",
+                "link": "/documents/mice-data-format/mice-data-payload"
+            },
+            {
+                "text": "Mic-E Destination Address Field",
+                "link": "/documents/mice-data-format/mice-destination-address-field"
+            },
+            {
+                "text": "Destination Address Field Encoding",
+                "link": "/documents/mice-data-format/destination-address-field-encoding"
+            },
+            {
+                "text": "Mic-E Messages",
+                "link": "/documents/mice-data-format/mice-messages"
+            },
+            {
+                "text": "Destination Address SSID Field",
+                "link": "/documents/mice-data-format/destination-address-ssid-field"
+            },
+            {
+                "text": "Mic-E Information Field",
+                "link": "/documents/mice-data-format/mice-information-field"
+            },
+            {
+                "text": "Information Field Data",
+                "link": "/documents/mice-data-format/information-field-data"
+            },
+            {
+                "text": "Longitude Degrees Encoding",
+                "link": "/documents/mice-data-format/longitude-degrees-encoding"
+            },
+            {
+                "text": "Longitude Minutes Encoding",
+                "link": "/documents/mice-data-format/longitude-minutes-encoding"
+            },
+            {
+                "text": "Longitude Hundredths of Minutes Encoding",
+                "link": "/documents/mice-data-format/longitude-hundredths-of-minutes-encoding"
+            },
+            {
+                "text": "Speed and Course Encoding",
+                "link": "/documents/mice-data-format/speed-and-course-encoding"
+            },
+            {
+                "text": "SP+28 Encoding",
+                "link": "/documents/mice-data-format/sp+28-encoding"
+            },
+            {
+                "text": "DC+28 Encoding",
+                "link": "/documents/mice-data-format/dc+28-encoding"
+            },
+            {
+                "text": "SE+28 Encoding",
+                "link": "/documents/mice-data-format/se+28-encoding"
+            },
+            {
+                "text": "Example of Mic-E Speed and Course Encoding",
+                "link": "/documents/mice-data-format/example-of-mice-speed-and-course-encoding"
+            },
+            {
+                "text": "Decoding the Speed and Course",
+                "link": "/documents/mice-data-format/decoding-the-speed-and-course"
+            },
+            {
+                "text": "Example of Decoding the Information Field Data",
+                "link": "/documents/mice-data-format/example-of-decoding-the-information-field-data"
+            },
+            {
+                "text": "Mic-E Position Ambiguity",
+                "link": "/documents/mice-data-format/mice-position-ambiguity"
+            },
+            {
+                "text": "Mic-E Telemetry Data",
+                "link": "/documents/mice-data-format/mice-telemetry-data"
+            },
+            {
+                "text": "Mic-E Status Text",
+                "link": "/documents/mice-data-format/mice-status-text"
+            },
+            {
+                "text": "Maidenhead Locator in the Mic-E Status Text Field",
+                "link": "/documents/mice-data-format/maidenhead-locator-in-the-mice-status-text-field"
+            },
+            {
+                "text": "Altitude in the Mic-E Status Text Field",
+                "link": "/documents/mice-data-format/altitude-in-the-mice-status-text-field"
+            },
+            {
+                "text": "Mic-E Data in Non-APRS Networks",
+                "link": "/documents/mice-data-format/mice-data-in-nonaprs-networks"
+            }
+        ]
+    },
+    {
+        "text": "OBJECT AND ITEM REPORTS",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "Objects and Items",
+                "link": "/documents/object-and-item-reports/objects-and-items"
+            },
+            {
+                "text": "Replacing an Object/Item",
+                "link": "/documents/object-and-item-reports/replacing-an-object-item"
+            },
+            {
+                "text": "Killing an Object/Item",
+                "link": "/documents/object-and-item-reports/killing-an-object-item"
+            },
+            {
+                "text": "Object Report Format",
+                "link": "/documents/object-and-item-reports/object-report-format"
+            },
+            {
+                "text": "Item Report Format",
+                "link": "/documents/object-and-item-reports/item-report-format"
+            },
+            {
+                "text": "Area Objects",
+                "link": "/documents/object-and-item-reports/area-objects"
+            },
+            {
+                "text": "Signpost Objects/Items",
+                "link": "/documents/object-and-item-reports/signpost-objects-items"
+            },
+            {
+                "text": "Obsolete Object Format",
+                "link": "/documents/object-and-item-reports/obsolete-object-format"
+            }
+        ]
+    },
+    {
+        "text": "WEATHER REPORTS",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "Weather Report Types",
+                "link": "/documents/weather-reports/weather-report-types"
+            },
+            {
+                "text": "Data Type Identifiers",
+                "link": "/documents/weather-reports/data-type-identifiers"
+            },
+            {
+                "text": "Raw Weather Reports",
+                "link": "/documents/weather-reports/raw-weather-reports"
+            },
+            {
+                "text": "Positionless Weather Reports",
+                "link": "/documents/weather-reports/positionless-weather-reports"
+            },
+            {
+                "text": "APRS Software Type",
+                "link": "/documents/weather-reports/aprs-software-type"
+            },
+            {
+                "text": "Weather Unit Type",
+                "link": "/documents/weather-reports/weather-unit-type"
+            },
+            {
+                "text": "Positionless Weather Data",
+                "link": "/documents/weather-reports/positionless-weather-data"
+            },
+            {
+                "text": "Location of a Raw and Positionless Weather Stations",
+                "link": "/documents/weather-reports/location-of-a-raw-and-positionless-weather-stations"
+            },
+            {
+                "text": "Symbols with Raw and Positionless Weather Stations",
+                "link": "/documents/weather-reports/symbols-with-raw-and-positionless-weather-stations"
+            },
+            {
+                "text": "Complete Weather Reports with Timestamp and Position",
+                "link": "/documents/weather-reports/complete-weather-reports-with-timestamp-and-position"
+            },
+            {
+                "text": "Storm Data",
+                "link": "/documents/weather-reports/storm-data"
+            },
+            {
+                "text": "National Weather Service Bulletins",
+                "link": "/documents/weather-reports/national-weather-service-bulletins"
+            }
+        ]
+    },
+    {
+        "text": "TELEMETRY DATA",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "Telemetry Report Format",
+                "link": "/documents/telemetry-data/telemetry-report-format"
+            },
+            {
+                "text": "On-Air Definition of Telemetry Parameters",
+                "link": "/documents/telemetry-data/onair-definition-of-telemetry-parameters"
+            },
+            {
+                "text": "Parameter Name Message",
+                "link": "/documents/telemetry-data/parameter-name-message"
+            },
+            {
+                "text": "Unit/Label Message",
+                "link": "/documents/telemetry-data/unit-label-message"
+            },
+            {
+                "text": "Equation Coefficients Message",
+                "link": "/documents/telemetry-data/equation-coefficients-message"
+            },
+            {
+                "text": "Bit Sense/Project Name Message",
+                "link": "/documents/telemetry-data/bit-sense-project-name-message"
+            }
+        ]
+    },
+    {
+        "text": "MESSAGES, BULLETINS AND ANNOUNCEMENTS",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "Messages",
+                "link": "/documents/messages-bulletins-and-announcements/messages"
+            },
+            {
+                "text": "Message Acknowledgement",
+                "link": "/documents/messages-bulletins-and-announcements/message-acknowledgement"
+            },
+            {
+                "text": "Message Rejection",
+                "link": "/documents/messages-bulletins-and-announcements/message-rejection"
+            },
+            {
+                "text": "Multiple Acknowledgements",
+                "link": "/documents/messages-bulletins-and-announcements/multiple-acknowledgements"
+            },
+            {
+                "text": "Message Groups",
+                "link": "/documents/messages-bulletins-and-announcements/message-groups"
+            },
+            {
+                "text": "General Bulletins",
+                "link": "/documents/messages-bulletins-and-announcements/general-bulletins"
+            },
+            {
+                "text": "Announcements",
+                "link": "/documents/messages-bulletins-and-announcements/announcements"
+            },
+            {
+                "text": "Group Bulletins",
+                "link": "/documents/messages-bulletins-and-announcements/group-bulletins"
+            },
+            {
+                "text": "National Weather Service Bulletins",
+                "link": "/documents/messages-bulletins-and-announcements/national-weather-service-bulletins"
+            },
+            {
+                "text": "NTS Radiograms",
+                "link": "/documents/messages-bulletins-and-announcements/nts-radiograms"
+            },
+            {
+                "text": "Obsolete Bulletin and Announcement Format",
+                "link": "/documents/messages-bulletins-and-announcements/obsolete-bulletin-and-announcement-format"
+            },
+            {
+                "text": "Bulletin and Announcement Implementation Recommendations",
+                "link": "/documents/messages-bulletins-and-announcements/bulletin-and-announcement-implementation-recommendations"
+            }
+        ]
+    },
+    {
+        "text": "STATION CAPABILITIES, QUERIES AND RESPONSES",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "Station Capabilities",
+                "link": "/documents/station-capabilities-queries-and-responses/station-capabilities"
+            },
+            {
+                "text": "Queries and Responses",
+                "link": "/documents/station-capabilities-queries-and-responses/queries-and-responses"
+            },
+            {
+                "text": "General Queries",
+                "link": "/documents/station-capabilities-queries-and-responses/general-queries"
+            },
+            {
+                "text": "Directed Station Queries",
+                "link": "/documents/station-capabilities-queries-and-responses/directed-station-queries"
+            }
+        ]
+    },
+    {
+        "text": "STATUS REPORTS",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "Status Report with Beam Heading and Effective Radiated Power",
+                "link": "/documents/status-reports/status-report-with-beam-heading-and-effective-radiated-power"
+            },
+            {
+                "text": "Status Report with Maidenhead Grid Locator",
+                "link": "/documents/status-reports/status-report-with-maidenhead-grid-locator"
+            },
+            {
+                "text": "Transmitting Status Reports",
+                "link": "/documents/status-reports/transmitting-status-reports"
+            }
+        ]
+    },
+    {
+        "text": "NETWORK TUNNELING AND THIRD-PARTY DIGIPEATING",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "Third-Party Networks",
+                "link": "/documents/network-tunneling-and-thirdparty-digipeating/thirdparty-networks"
+            },
+            {
+                "text": "Source Path Header",
+                "link": "/documents/network-tunneling-and-thirdparty-digipeating/source-path-header"
+            },
+            {
+                "text": "Third-Party Header",
+                "link": "/documents/network-tunneling-and-thirdparty-digipeating/thirdparty-header"
+            },
+            {
+                "text": "Action on Receiving a Third-Party packet",
+                "link": "/documents/network-tunneling-and-thirdparty-digipeating/action-on-receiving-a-thirdparty-packet"
+            },
+            {
+                "text": "An Example of Sending a Message through the Internet",
+                "link": "/documents/network-tunneling-and-thirdparty-digipeating/an-example-of-sending-a-message-through-the-internet"
+            }
+        ]
+    },
+    {
+        "text": "USER-DEFINED DATA FORMAT",
+        "link": "/documents/userdefined-data-format"
+    },
+    {
+        "text": "OTHER PACKETS",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "Invalid Data or Test Data Packets",
+                "link": "/documents/other-packets/invalid-data-or-test-data-packets"
+            },
+            {
+                "text": "All Other Packets",
+                "link": "/documents/other-packets/all-other-packets"
+            }
+        ]
+    },
+    {
+        "text": "APRS SYMBOLS",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "Three Methods",
+                "link": "/documents/aprs-symbols/three-methods"
+            },
+            {
+                "text": "The Symbol Tables",
+                "link": "/documents/aprs-symbols/the-symbol-tables"
+            },
+            {
+                "text": "Symbols in the AX.25 Information Field",
+                "link": "/documents/aprs-symbols/symbols-in-the-ax25-information-field"
+            },
+            {
+                "text": "Overlays with Symbols in the AX.25 Information Field",
+                "link": "/documents/aprs-symbols/overlays-with-symbols-in-the-ax25-information-field"
+            },
+            {
+                "text": "Symbols in the AX.25 Destination Address",
+                "link": "/documents/aprs-symbols/symbols-in-the-ax25-destination-address"
+            },
+            {
+                "text": "Overlays with Symbols in the AX.25 Destination Address",
+                "link": "/documents/aprs-symbols/overlays-with-symbols-in-the-ax25-destination-address"
+            },
+            {
+                "text": "Symbol in the Source Address SSID",
+                "link": "/documents/aprs-symbols/symbol-in-the-source-address-ssid"
+            },
+            {
+                "text": "Symbol Precedence",
+                "link": "/documents/aprs-symbols/symbol-precedence"
+            }
+        ]
+    },
+    {
+        "text": "APPENDIX 1: APRS DATA FORMATS",
+        "link": "/documents/appendix-1-aprs-data-formats"
+    },
+    {
+        "text": "APPENDIX 2: THE APRS SYMBOL TABLES",
+        "link": "/documents/appendix-2-the-aprs-symbol-tables"
+    },
+    {
+        "text": "APPENDIX 3: 7-BIT ASCII CODE TABLE",
+        "link": "/documents/appendix-3-7bit-ascii-code-table"
+    },
+    {
+        "text": "APPENDIX 4: DECIMAL-TO-HEX CONVERSION TABLE",
+        "link": "/documents/appendix-4-decimaltohex-conversion-table"
+    },
+    {
+        "text": "APPENDIX 5: GLOSSARY",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "Units Conversion Table",
+                "link": "/documents/appendix-5-glossary/units-conversion-table"
+            },
+            {
+                "text": "Fahrenheit/Celsius Temperature Conversion Equations",
+                "link": "/documents/appendix-5-glossary/fahrenheit-celsius-temperature-conversion-equations"
+            }
+        ]
+    },
+    {
+        "text": "APPENDIX 6: REFERENCES",
+        "link": "/documents/appendix-6-references"
+    },
+    {
+        "text": "APPENDIX 7: DOCUMENT RELEASE HISTORY",
+        "link": "/documents/appendix-7-document-release-history"
+    }
+]
