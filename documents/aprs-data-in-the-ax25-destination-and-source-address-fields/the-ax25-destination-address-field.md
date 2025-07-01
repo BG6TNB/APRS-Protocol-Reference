@@ -1,5 +1,5 @@
 ---
-order: 4.1
+order: "4.1"
 title: The AX.25 Destination Address Field
 ---
 

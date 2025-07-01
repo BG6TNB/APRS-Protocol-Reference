@@ -1,5 +1,5 @@
 ---
-order: 4.4
+order: "4.4"
 title: APRS Software Version Number
 ---
 

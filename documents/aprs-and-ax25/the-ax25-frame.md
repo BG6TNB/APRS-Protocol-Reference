@@ -1,5 +1,5 @@
 ---
-order: 3.2
+order: "3.2"
 title: The AX.25 Frame
 ---
 

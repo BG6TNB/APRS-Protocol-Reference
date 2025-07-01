@@ -1,5 +1,5 @@
 ---
-order: 5.2
+order: "5.2"
 title: APRS Data Type Identifier
 ---
 
@@ -44,7 +44,7 @@ Every APRS packet contains an APRS Data Type Identifier (DTI). This determines t
 | ]     | *[Unused]*                                                                   |
 | ^     | *[Unused]*                                                                   |
 | _     | Weather Report (without position)                                            |
-| ‘     | Current Mic-E Data (not used in TM-D700)                                     |
+| '     | Current Mic-E Data (not used in TM-D700)                                     |
 | a–z   | *[Do not use]*                                                               |
 | {     | User-Defined APRS packet format                                              |
 | \|    | *[Do not use — TNC stream switch character]*                                 |
@@ -53,4 +53,4 @@ Every APRS packet contains an APRS Data Type Identifier (DTI). This determines t
 
 **Note:** There is one exception to the requirement for the Data Type Identifier to be the first character in the Information field — this is the Position without Timestamp (indicated by the **!** DTI). The **!** character may occur anywhere up to and including the 40th character position in the Information field. This variability is required to support X1J TNC digipeaters which have a string of unmodifiable text at the beginning of the field.
 
-**Note:** The Kenwood TM-D700 radio uses the **'** DTI for current Mic-E data. The radio does not use the **‘** DTI.
+**Note:** The Kenwood TM-D700 radio uses the **'** DTI for current Mic-E data. The radio does not use the **'** DTI.

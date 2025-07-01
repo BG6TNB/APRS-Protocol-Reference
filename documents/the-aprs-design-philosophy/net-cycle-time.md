@@ -1,5 +1,5 @@
 ---
-order: 2.1
+order: "2.1"
 title: Net Cycle Time
 ---
 
@@ -9,7 +9,7 @@ It is important to note that APRS is primarily a real-time, tactical communicati
 
 Anything which is done to enhance APRS must not undermine its ability to operate in local areas under stress. Here are the details of that philosophy:
 
-1. APRS uses the concept of a “net cycle time”. This is the time within which a user should be able to hear (at least once) all APRS stations within range, to obtain a 
+1. APRS uses the concept of a "net cycle time". This is the time within which a user should be able to hear (at least once) all APRS stations within range, to obtain a 
 more or less complete picture of APRS activity. The net cycle time will vary according to local conditions and with the number of digipeaters through which APRS data travels.
 
 2. The objective is to have a net cycle time of 10 minutes for local use. This means that within 10 minutes of arrival on the scene, it is possible to captured the entire tactical picture.

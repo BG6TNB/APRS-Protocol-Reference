@@ -1,5 +1,5 @@
 ---
-order: 5.3
+order: "5.3"
 title: APRS Data and Data Extension
 ---
 

@@ -1,5 +1,5 @@
 ---
-order: 10.2
+order: "10.2"
 title: Mic-E Data Payload
 ---
 
@@ -23,4 +23,4 @@ Although the destination address appears to be quite unconventional, it is still
 - The encoded longitude.
 - The encoded course and speed.
 - The display Symbol Code and Symbol Table Identifier.
-- An optional field, containing either Mic-E telemetry data or a Mic-E status text string. The status string can contain plain text, Maidenhead locator or the station’s altitude.
+- An optional field, containing either Mic-E telemetry data or a Mic-E status text string. The status string can contain plain text, Maidenhead locator or the station's altitude.

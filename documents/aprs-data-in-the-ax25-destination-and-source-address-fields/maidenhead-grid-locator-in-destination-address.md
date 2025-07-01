@@ -1,5 +1,5 @@
 ---
-order: 4.6
+order: "4.6"
 title: Maidenhead Grid Locator in Destination Address
 ---
 

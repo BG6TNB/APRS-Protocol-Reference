@@ -1,5 +1,5 @@
 ---
-order: 1.2
+order: "1.2"
 title: APRS Features
 ---
 

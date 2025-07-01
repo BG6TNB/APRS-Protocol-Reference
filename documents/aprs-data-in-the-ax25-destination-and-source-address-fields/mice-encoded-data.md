@@ -1,5 +1,5 @@
 ---
-order: 4.5
+order: "4.5"
 title: Mic-E Encoded Data
 ---
 

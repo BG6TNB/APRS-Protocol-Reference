@@ -1,5 +1,5 @@
 ---
-order: 4.2
+order: "4.2"
 title: Generic APRS Destination Addresses
 ---
 

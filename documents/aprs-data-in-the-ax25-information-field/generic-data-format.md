@@ -1,5 +1,5 @@
 ---
-order: 5.1
+order: "5.1"
 title: Generic Data Format
 ---
 

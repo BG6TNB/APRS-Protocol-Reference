@@ -1,5 +1,5 @@
 ---
-order: 4.3
+order: "4.3"
 title: Generic APRS Address with Symbol
 ---
 

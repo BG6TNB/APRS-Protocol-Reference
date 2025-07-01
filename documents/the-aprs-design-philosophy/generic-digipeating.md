@@ -1,5 +1,5 @@
 ---
-order: 2.3
+order: "2.3"
 title: Generic Digipeating
 ---
 
@@ -15,6 +15,6 @@ The power of APRS in the field derives from the use of generic digipeating, in t
 
 4. **TRACE** — Every high-site digipeater that is using callsign substitution is assumed to have the alias of TRACE. These digipeaters self-identify packets they digipeat by inserting their own call in place of RELAY, WIDE or TRACE.
 
-5. **WIDEn-N** — A digipeater that supports WIDEn-N digipeating will digipeat any WIDEn-N packet that is “new” and will subtract 1 from the SSID until the SSID reaches –0. The digipeater keeps a copy or a checksum of the packet and will not digipeat that packet again within (typically) 28 seconds. This considerably reduces the number of superfluous digipeats in areas with many digipeaters in radio range of each other.
+5. **WIDEn-N** — A digipeater that supports WIDEn-N digipeating will digipeat any WIDEn-N packet that is "new" and will subtract 1 from the SSID until the SSID reaches –0. The digipeater keeps a copy or a checksum of the packet and will not digipeat that packet again within (typically) 28 seconds. This considerably reduces the number of superfluous digipeats in areas with many digipeaters in radio range of each other.
 
 6. **GATE** — This generic callsign is used by HF-to-VHF Gateway digipeaters. Any packet heard on HF via GATE will be digipeated locally on VHF. This permits local networks to keep an eye on the national and international picture.

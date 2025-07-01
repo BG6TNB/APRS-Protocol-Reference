@@ -1,5 +1,5 @@
 ---
-order: 4.9
+order: "4.9"
 title: The AX.25 Source Address SSID to specify Symbols
 ---
 

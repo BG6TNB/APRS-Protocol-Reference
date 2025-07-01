@@ -1,5 +1,5 @@
 ---
-order: 4.7
+order: "4.7"
 title: Alternate Nets
 ---
 

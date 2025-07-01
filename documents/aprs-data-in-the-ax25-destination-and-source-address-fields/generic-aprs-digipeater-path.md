@@ -1,5 +1,5 @@
 ---
-order: 4.8
+order: "4.8"
 title: Generic APRS Digipeater Path
 ---
 
