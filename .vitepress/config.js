@@ -49,6 +49,10 @@ export default defineConfig({
         config(md) {
             md.use(markdownItMultimdTable)
         }
+    },
+
+    sitemap: {
+        hostname: 'https://bg6tnb.github.io/APRS-Protocol-Reference/'
     }
 
 })
