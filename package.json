@@ -23,7 +23,11 @@
   },
   "homepage": "https://github.com/BG6TNB/APRS-Protocol-Reference#readme",
   "devDependencies": {
-    "vitepress": "^1.0.0-rc.4",
-    "markdown-it-multimd-table": "^4.2.3"
+    "markdown-it-multimd-table": "^4.2.3",
+    "vitepress": "^1.6.4"
+  },
+  "allowScripts": {
+    "esbuild@0.21.5": true,
+    "fsevents@2.3.3": true
   }
 }

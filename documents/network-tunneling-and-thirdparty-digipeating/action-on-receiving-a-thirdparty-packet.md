@@ -5,4 +5,6 @@ title: Action on Receiving a Third-Party packet
 
 # {{$frontmatter.order}} {{ $frontmatter.title }}
 
-When a third-party packet is received, the system must extract and process the original APRS packet contained within the third-party header.
+When another station receives a third-party packet, it can extract the callsign of the original sending station from the Third-Party Header, if it is needed to acknowledge receipt of a message.
+
+The other addresses in the Third-Party Header may be useful for network diagnostic purposes.

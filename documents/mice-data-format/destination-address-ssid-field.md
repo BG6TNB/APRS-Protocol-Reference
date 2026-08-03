@@ -5,31 +5,19 @@ title: Destination Address SSID Field
 
 # {{$frontmatter.order}} {{ $frontmatter.title }}
 
-The Destination Address SSID (Secondary Station Identifier) field is a component of the AX.25 protocol used in APRS and Mic-E packet formats. In Mic-E, the SSID field plays a special role in conveying additional information about the transmitting station.
+The SSID in the Destination Address field of a Mic-E packet is coded to specify either a conventional digipeater VIA path (contained in the Digipeater Addresses field of the AX.25 frame), or one of 15 generic APRS digipeater paths. See Chapter 4: APRS Data in the AX.25 Destination and Source Address Fields.
 
-## What is the SSID Field?
-- The SSID is a 4-bit value appended to the end of the destination or source callsign in an AX.25 address.
-- It is typically written as a hyphen followed by a number (e.g., "CALL-9").
+The SSID field in the Destination Address (i.e. in the 7th address byte) is encoded as follows:
 
-## How is it Used in Mic-E?
-- In Mic-E encoding, the destination address and its SSID are used to encode status, type, and sometimes symbol information.
-- The SSID value can indicate:
-  - The type of station (e.g., mobile, fixed, weather)
-  - The specific function or status of the station
-  - Additional data such as the symbol overlay
-- The combination of destination address and SSID is interpreted according to the Mic-E specification to extract this information.
+APRS Digipeater Paths in Destination Address SSID
 
-## Significance
-- The use of the SSID field in Mic-E allows for more efficient and compact transmission of station information without requiring extra fields in the packet.
-- It enables APRS and Mic-E decoders to quickly identify the nature and status of the transmitting station.
-
-## Example
-A typical Mic-E destination address with SSID:
-```
-APMI06-9
-```
-In this example, "APMI06" is the destination address, and "-9" is the SSID. The combination encodes specific information about the station's type and status, as defined by the Mic-E protocol.
-
----
-
-The Destination Address SSID Field is an essential part of Mic-E encoding, enabling efficient communication of station attributes in APRS networks.
+| SSID | Path | SSID | Path |
+| --- | --- | --- | --- |
+| -0 | Use VIA path | -8 | North path |
+| -1 | WIDE1-1 | -9 | South path |
+| -2 | WIDE2-2 | -10 | East path |
+| -3 | WIDE3-3 | -11 | West path |
+| -4 | WIDE4-4 | -12 | North path + WIDE |
+| -5 | WIDE5-5 | -13 | South path + WIDE |
+| -6 | WIDE6-6 | -14 | East path + WIDE |
+| -7 | WIDE7-7 | -15 | West path + WIDE |

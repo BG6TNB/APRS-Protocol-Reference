@@ -5,28 +5,22 @@ title: The Advantages of Data Compression
 
 # {{$frontmatter.order}} {{ $frontmatter.title }}
 
-Data compression in APRS is used to reduce the size of transmitted packets, allowing more information to be sent in less bandwidth. This is especially important in radio communications, where channel capacity is limited.
+Compressed data format may be used in place of the numeric lat/long coordinates already described, such as in the `!`, `/`, `@` and `=` formats.
 
-## Why Use Data Compression?
-- Increases the number of stations and messages that can be transmitted in a given time
-- Reduces channel congestion and packet collisions
-- Allows for the inclusion of more data fields (e.g., altitude, course, speed) without exceeding packet size limits
+Data compression has several important benefits:
 
-## Where is Compression Applied?
-- Compressed position reports (latitude, longitude, course, speed, altitude)
-- Some telemetry and data extension fields
+- Fully backwards compatible with all existing formats.
+- Fully supports any comment string.
+- Speed is accurate to +/-1 mph up to about 40 mph and within 3% at 600 mph.
+- Altitude in feet is accurate to +/- 0.4% from 1 foot to 3000 miles.
+- Consistent one-algorithm processing of compressed latitude and longitude.
+- Improved position to 1 foot worldwide.
+- Pre-calculated radio range, compressed to one byte.
+- Potential 50% compression of every position format on the air.
+- Potential 40% reduction of raw GPS NMEA data length.
+- Additional 7-byte reduction for NEMA GGA altitudes.
+- Support for TNC compression at the NMEA source (from the GPS receiver).
+- Digipeater compression of old NMEA trackers on the fly.
+- Usage is optional in all cases.
 
-## Example
-A standard position report:
-```
-!4903.50N/07201.75W>
-```
-A compressed position report:
-```
-!/5L!<*e>/'6X
-```
-The compressed format encodes the same information in fewer characters.
-
----
-
-Data compression in APRS enables efficient, high-density communication on crowded radio channels.
+The only minor disadvantages are that the course only resolves to +/- 2 degrees, and this format does not support PHG.

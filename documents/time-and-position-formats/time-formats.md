@@ -5,31 +5,39 @@ title: Time Formats
 
 # {{$frontmatter.order}} {{ $frontmatter.title }}
 
-APRS supports several time formats to indicate when a position or event was recorded. Time information is typically included in position reports, weather reports, and other APRS packets to provide context for the data.
+APRS timestamps are expressed in three different ways:
 
-## Supported Time Formats
-| Format | Example   | Meaning                        | Notes                |
-|--------|-----------|--------------------------------|----------------------|
-| DHM    | 231530z   | Day, Hour, Minute (UTC)        | 23rd day, 15:30 UTC  |
-| HMS    | 153045h   | Hour, Minute, Second (local)   | 15:30:45 local time  |
-| MDHM   | 112315z   | Month, Day, Hour, Minute (UTC) | 11th month, 23rd day, 15:00 UTC |
+- Day/Hours/Minutes format
+- Hours/Minutes/Seconds format
+- Month/Day/Hours/Minutes format
 
-- **DHM**: Day of month (2 digits), hour (2 digits), minute (2 digits), followed by 'z' for Zulu (UTC).
-- **HMS**: Hour (2 digits), minute (2 digits), second (2 digits), followed by 'h' for local time.
-- **MDHM**: Month (2 digits), day (2 digits), hour (2 digits), minute (2 digits), followed by 'z' for Zulu (UTC).
+In all three formats, the 24-hour clock is used.
 
-## Usage Notes
-- Time formats are optional in some APRS packets but recommended for accuracy.
-- 'z' indicates Zulu (UTC) time; 'h' indicates local time.
-- The time stamp, if present, usually appears at the start of the information field after the data type identifier.
+Day/Hours/Minutes (DHM) format is a fixed 7-character field, consisting of a 6-digit day/time group followed by a single time indicator character (z or /). The day/time group consists of a two-digit day-of-the-month (01–31) and a four-digit time in hours and minutes.
 
-## Example
-A position report with a DHM timestamp:
+Times can be expressed in zulu (UTC/GMT) or local time. For example:
+
 ```
-/APRS>APRS,TCPIP*: @231530z4903.50N/07201.75W>Test station
+092345z is 2345 hours zulu time on the 9th day of the month.
+092345/ is 2345 hours local time on the 9th day of the month.
 ```
-Here, `@231530z` means the position was recorded on the 23rd day at 15:30 UTC.
 
----
+It is recommended that future APRS implementations only transmit zulu format on the air.
 
-Accurate time formats help ensure the relevance and reliability of APRS data.
+**Note:** The time in Status Reports may only be in zulu format.
+
+Hours/Minutes/Seconds (HMS) format is a fixed 7-character field, consisting of a 6-digit time in hours, minutes and seconds, followed by the h time-indicator character. For example:
+
+```
+234517h is 23 hours 45 minutes and 17 seconds zulu.
+```
+
+**Note:** This format may not be used in Status Reports.
+
+Month/Day/Hours/Minutes (MDHM) format is a fixed 8-character field, consisting of the month (01–12) and day-of-the-month (01–31), followed by the time in hours and minutes zulu. For example:
+
+```
+10092345 is 23 hours 45 minutes zulu on October 9th.
+```
+
+This format is only used in reports from stand-alone "positionless" weather stations (i.e. reports that do not contain station position information).

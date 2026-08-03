@@ -5,28 +5,21 @@ title: Lat/Long Decoding
 
 # {{$frontmatter.order}} {{ $frontmatter.title }}
 
-Lat/long decoding in APRS compressed position reports is the process of converting the base-91 encoded characters back into standard latitude and longitude values.
+To decode a compressed lat/long, the reverse process is needed. That is, if `YYYY` is represented as `y1 y2 y3 y4` and `XXXX` as `x1 x2 x3 x4`, then:
 
-## How is Lat/Long Decoded?
-- Each set of four base-91 characters is converted back to an integer
-- The integer is then scaled according to the APRS compressed format specification to yield latitude or longitude
-
-## Decoding Steps
-1. Convert each base-91 character to its numeric value (subtract 33 from ASCII code)
-2. Combine the four values to form a single integer
-3. Apply the scaling formula to recover the original coordinate
-
-## Example
-Given a compressed string:
 ```
-!/5L!<*e>/'6X
+Lat = 90 - ((y1 - 33) x 91^3 + (y2 - 33) x 91^2 + (y3 - 33) x 91 + y4 - 33) / 380926
 ```
-The relevant characters are decoded to yield latitude and longitude
 
-## Usage Notes
-- The process is reversible and preserves high precision (about 1.1 meters)
-- Most APRS software can decode compressed position reports automatically
+```
+Long = -180 + ((x1 - 33) x 91^3 + (x2 - 33) x 91^2 + (x3 - 33) x 91 + x4 - 33) / 190463
+```
 
----
+For example, if the compressed value of the longitude is `<*e7` (as computed above), the calculation becomes:
 
-Lat/long decoding in APRS compressed reports ensures accurate recovery of position data from compact packets.
+```
+Long = -180 + (27 x 91^3 + 9 x 91^2 + 68 x 91 + 22) / 190463
+     = -180 + (20346417 + 74529 + 6188 + 22) / 190463
+     = -180 + 107.25
+     = -72.75 degrees
+```

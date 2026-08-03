@@ -73,6 +73,7 @@ Basic location query using XML:
 
 https://api.aprs.fi/api/get?name=OH7RDA&what=loc&apikey=APIKEY&format=xml
 
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <xml>
 <command>get</command>
@@ -96,6 +97,7 @@ https://api.aprs.fi/api/get?name=OH7RDA&what=loc&apikey=APIKEY&format=xml
 	</entry>
 </entries>
 </xml>
+```
 
 ## Querying multiple targets using a single request:
 

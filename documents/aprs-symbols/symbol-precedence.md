@@ -5,10 +5,16 @@ title: Symbol Precedence
 
 # {{$frontmatter.order}} {{ $frontmatter.title }}
 
-When more than one symbol is specified in an APRS packet, the following precedence applies:
+APRS packets should not contain more than one symbol. However, it is conceivably possible to (erroneously) construct a packet containing up to three different symbols.
 
-1. The symbol in the AX.25 Information field takes highest precedence and should be used for display.
-2. If no symbol is present in the Information field, the symbol in the AX.25 Destination Address is used.
-3. If neither of the above is present, the symbol specified by the SSID in the AX.25 Source Address is used (typically for trackers or devices with limited capabilities).
+For example:
 
-This precedence ensures that the most explicit and up-to-date symbol is displayed for each station or object.
+| Source Address SSID | Destination Address | Information Field |
+|---|---|---|
+| G3NRW-7 GPSMV |  | !0123.45N/01234.56Wj |
+| Symbol: Small Aircraft | Symbol: Car | Symbol: Jeep |
+
+In such a situation:
+
+- The symbol in the Information field takes precedence over any other symbol.
+- If there is no symbol in the Information field, the symbol in the Destination Address takes precedence over the symbol in the Source Address SSID.

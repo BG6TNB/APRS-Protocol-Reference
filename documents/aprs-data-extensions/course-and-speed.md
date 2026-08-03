@@ -5,31 +5,29 @@ title: Course and Speed
 
 # {{$frontmatter.order}} {{ $frontmatter.title }}
 
-Course and speed are common data extensions in APRS position reports, providing additional information about the movement of a station or object.
+A fixed-length 7-byte field may follow APRS position data. This field is an APRS Data Extension. The extension may be one of the following:
 
-## What Are Course and Speed?
-- **Course**: The direction of travel, measured in degrees (0–359), relative to true north.
-- **Speed**: The rate of movement, typically expressed in knots (nautical miles per hour).
+- **CSE/SPD** Course and Speed (this may be followed by a further 8 bytes containing DF bearing and Number/Range/Quality parameters)
+- **DIR/SPD** Wind Direction and Wind Speed
+- **PHGphgd** Station Power and Effective Antenna Height/Gain/Directivity
+- **RNGrrrr** Pre-Calculated Radio Range
+- **DFSshgd** DF Signal Strength and Effective Antenna Height/Gain
+- **Tyy/Cxx** Area Object Descriptor
 
-## Encoding in APRS
-- Course and speed are usually appended to the position coordinates, separated by a slash ('/').
-- The format is: `CCC/SSS`, where CCC is the course (three digits) and SSS is the speed (three digits).
+The 7-byte CSE/SPD Data Extension can be used to represent the course and speed of a vehicle or APRS Object.
 
-## Example
+The course is expressed in degrees (001-360), clockwise from due north. The speed is expressed in knots. A slash `/` character separates the two.
+
+For example:
+
 ```
-4903.50N/07201.75W123/045
+088/036
 ```
-This represents:
-- Latitude: 49°03.50' N
-- Longitude: 72°01.75' W
-- Course: 123°
-- Speed: 45 knots
 
-## Usage Notes
-- Course and speed are optional but recommended for mobile stations.
-- If not moving, speed may be set to 000.
-- Some compressed or alternative formats encode course and speed differently (see relevant sections).
+represents a course 88 degrees, traveling at 36 knots.
 
----
+If the course and speed are unknown or not relevant, they can be set to `000/000` or `.../...` or `VVVVVV/VVVVVV`.
 
-Including course and speed in APRS packets enhances situational awareness and tracking accuracy.
+::: tip Note
+In the special case of DF reports, a course of 000 means that the DF station is fixed. If the course is non-zero, the station is mobile.
+:::

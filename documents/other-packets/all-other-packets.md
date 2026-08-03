@@ -5,4 +5,8 @@ title: All Other Packets
 
 # {{$frontmatter.order}} {{ $frontmatter.title }}
 
-All other packets that do not conform to the standard APRS formats described in this specification are generally ignored by APRS software. These packets may be passed through the network but are not interpreted or displayed. Implementations should ensure that only recognized APRS packet types are processed for display or mapping, while unknown or non-APRS packets are safely ignored to maintain network efficiency and data integrity.
+Packets that do not meet any of the formats described in this document are assumed to be non-APRS beacons. Programs can decide to handle these, or ignore them, but they must be able to process them without ill effects.
+
+APRS programs may treat such packets as APRS Status Reports. This allows APRS to accept any UI packet addressed to the typical beacon address to be captured as a status message. Typical TNC ID packets fall into this category.
+
+Once a proper Status Report (with the APRS Data Type Identifier `>`) has been received from a station it will not be overwritten by other non-APRS packets from that station.

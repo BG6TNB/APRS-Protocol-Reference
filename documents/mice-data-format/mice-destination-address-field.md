@@ -5,28 +5,19 @@ title: Mic-E Destination Address Field
 
 # {{$frontmatter.order}} {{ $frontmatter.title }}
 
-The Mic-E destination address field in APRS is used to encode latitude and a message code in a compact, non-standard way. This field is a key part of the Mic-E data format.
+The standard AX.25 Destination Address field consists of 7 bytes, containing 6 callsign characters and the SSID (plus a number of other bits that are not of interest here). When used to carry Mic-E data, however, this field has a quite different format:
 
-## How is the Destination Address Encoded?
-- The 7-character destination address encodes:
-  - 6 digits of latitude
-  - North/South indicator
-  - Longitude offset indicator
-  - 3-bit Mic-E message code (standard, custom, or emergency)
-- The encoding uses shifted ASCII values to remain AX.25-compliant
+**Mic-E Data — DESTINATION ADDRESS FIELD Format**
 
-## Example
-A destination address field:
-```
-"S1S1S1"
-```
-This encodes latitude and message code for the station
+| Byte | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Content | Lat Digit 1 + Message Bit A | Lat Digit 2 + Message Bit B | Lat Digit 3 + Message Bit C | Lat Digit 4 + N/S Lat Indicator | Lat Digit 5 + Longitude Offset | Lat Digit 6 + W/E Long Indicator | APRS Digi Path Code |
 
-## Usage Notes
-- Decoding requires reversing the ASCII shift and applying the Mic-E decoding rules
-- The destination address field is not a standard callsign in Mic-E packets
-- Most APRS software can decode Mic-E destination addresses automatically
+The Destination Address field contains:
 
----
-
-The Mic-E destination address field enables efficient encoding of position and status in APRS packets.
+- Six encoded latitude digits specifying degrees (digits 1 and 2), minutes (digits 3 and 4) and hundredths of minutes (digits 5 and 6).
+- 3-bit Mic-E message identifier (message bits A, B and C).
+- North/South latitude indicator.
+- Longitude offset (adds 0 degrees or 100 degrees to the longitude computation in the Information field).
+- West/East longitude indicator.
+- Generic APRS digipeater path (encoded in the SSID).

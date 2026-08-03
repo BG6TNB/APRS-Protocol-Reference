@@ -5,27 +5,35 @@ title: Compressed Data Format
 
 # {{$frontmatter.order}} {{ $frontmatter.title }}
 
-The compressed data format in APRS is a specialized encoding scheme that allows position and related information to be transmitted in a compact, fixed-length string. This format is designed for bandwidth efficiency and is widely used in APRS for mobile and high-density environments.
+Compressed data may be generated in several ways:
 
-## Structure of the Compressed Data Format
-- Uses base-91 encoding to represent latitude, longitude, and optional data fields (course, speed, altitude, etc.)
-- The compressed string is always 13 characters long
-- Begins with a data type identifier (e.g., '/')
+- by APRS software.
+- pre-entered manually into a digipeater's beacon text.
+- by a digipeater converting raw tracker NMEA packets to compressed.
 
-## Example
+[In future, there is the possibility that a Kantronics KPC-3 or other tracker TNC will be able to compress data directly from an attached GPS receiver].
+
+In all cases the compressed format is a fixed 13-character field:
+
 ```
-!/5L!<*e>/'6X
+/YYYYXXXX$csT
 ```
-This compressed string encodes:
-- Latitude
-- Longitude
-- Symbol
-- (Optionally) course, speed, altitude, and other extensions
 
-## Decoding Notes
-- Decoding requires knowledge of base-91 notation and the APRS compressed format specification
-- Many APRS software packages can decode and display compressed position reports automatically
+where:
 
----
+- `/` is the Symbol Table Identifier
+- `YYYY` is the compressed latitude
+- `XXXX` is the compressed longitude
+- `$` is the Symbol Code
+- `cs` is the compressed course/speed or compressed pre-calculated radio range or compressed altitude
+- `T` is the compression type indicator
 
-The compressed data format in APRS enables efficient transmission of rich position data in minimal bandwidth.
+**Compressed Position Data**
+
+| Sym Table ID | Compressed Lat `YYYY` | Compressed Long `XXXX` | Symbol Code | Compressed Course/Speed / Compressed Radio Range / Compressed Altitude | Comp Type `T` |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| 1 | 4 | 4 | 1 | 2 | 1 |
+
+Compressed format can be used in place of lat/long position format anywhere that `...ddmm.hhN/dddmm.hhW$xxxxxxx...` occurs.
+
+All bytes except for the `/` and `$` are base-91 printable ASCII characters (`!..{`). These are converted to numeric values by subtracting 33 from the decimal ASCII character code. For example, `#` has an ASCII code of 35, and represents a numeric value of 2 (i.e. 35-33).

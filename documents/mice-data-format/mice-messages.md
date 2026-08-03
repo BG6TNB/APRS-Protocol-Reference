@@ -5,31 +5,29 @@ title: Mic-E Messages
 
 # {{$frontmatter.order}} {{ $frontmatter.title }}
 
-Mic-E messages in APRS are short status or alert codes encoded within the Mic-E data format. They allow stations to quickly communicate predefined or custom statuses.
+The Mic-E message identifier is a 3-bit code (message bits A, B and C) that specifies one of 7 Standard Mic-E Message Codes, one of 7 Custom Mic-E Message Codes, or an Emergency Message Code.
 
-## What Are Mic-E Messages?
-- Encoded as a 3-bit message code in the destination address field
-- Indicate standard statuses (e.g., "In Service", "En Route", "Emergency") or custom user-defined messages
-- Some codes are reserved for emergency or high-priority alerts
+| Message Bits A/B/C | Standard Mic-E Message Type | Custom Mic-E Message Type |
+| --- | --- | --- |
+| 1 1 1 | M0: Off Duty | C0: Custom-0 |
+| 1 1 0 | M1: En Route | C1: Custom-1 |
+| 1 0 1 | M2: In Service | C2: Custom-2 |
+| 1 0 0 | M3: Returning | C3: Custom-3 |
+| 0 1 1 | M4: Committed | C4: Custom-4 |
+| 0 1 0 | M5: Special | C5: Custom-5 |
+| 0 0 1 | M6: Priority | C6: Custom-6 |
+| 0 0 0 | Emergency | Emergency |
 
-## Types of Mic-E Messages
-- **Standard**: Predefined codes for common statuses
-- **Custom**: User-defined codes for specific needs
-- **Emergency**: Reserved codes for distress or urgent situations
+The Standard messages and the Emergency message have the same meaning for all APRS stations. The Custom messages may be assigned any arbitrary meaning.
 
-## Example
-A Mic-E packet with an emergency code:
-```
-DEST: "S1S1S1" (encodes emergency)
-SRC: "CALL-9"
-INFO: "`l4!>\"Test"
-```
+Note: Support for Custom messages is optional. Original Mic-E units do not support Custom messages.
 
-## Usage Notes
-- The meaning of each code is defined in the APRS Mic-E specification
-- Most APRS software can decode and display Mic-E messages automatically
-- Emergency codes trigger special handling in many systems
+Note: If the A/B/C message identifier bits contain a mixture of Standard 1s and Custom 1s, the message type is "unknown".
 
----
+Some examples of message type encoding:
 
-Mic-E messages enable rapid, efficient status and alert reporting in APRS.
+| First 3 Destination Address Bytes | Message Identifier Bits A/B/C | Message Type |
+| --- | --- | --- |
+| `S32` | Standard 1 / 0 / 0 | Standard M3: Returning |
+| `F2D` | Custom 1 / 0 / Custom 1 | Custom C2: Custom-2 |
+| `234` | 0 / 0 / 0 | Emergency |

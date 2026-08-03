@@ -5,24 +5,30 @@ title: Position Ambiguity
 
 # {{$frontmatter.order}} {{ $frontmatter.title }}
 
-Position ambiguity in APRS allows a station to intentionally reduce the precision of its reported location. This is useful for privacy, uncertainty, or when only an approximate location is known.
+In some instances — for example, where the exact position is not known — the sending station may wish to reduce the number of digits of precision in the latitude and longitude. In this case, the mm and hh digits in the latitude may be progressively replaced by a space character as the amount of imprecision increases. For example:
 
-## How Ambiguity is Represented
-- Ambiguity is indicated by replacing the least significant digits of the latitude and/or longitude with spaces.
-- The number of spaces determines the level of ambiguity (e.g., nearest 1 minute, 10 minutes, 1 degree, etc.).
-- Some software may use zeros instead of spaces, but spaces are the standard.
-
-## Example
 ```
-4903.  N/07201.  W
+4903.5 N represents latitude to nearest 1/10th of a minute.
+4903.  N represents latitude to nearest minute.
+490 .  N represents latitude to nearest 10 minutes.
+49  .  N represents latitude to nearest degree.
 ```
-This position is ambiguous to the nearest minute (the hundredths are blank).
 
-## Usage Notes
-- Ambiguity is often used for mobile or sensitive stations.
-- Mapping software will typically display an area or circle rather than a precise point.
-- The more spaces, the greater the ambiguity.
+The level of ambiguity specified in the latitude will automatically apply to the longitude as well — it is not necessary to include any space characters in the longitude.
 
----
+For example, the coordinates:
 
-Position ambiguity helps balance privacy and utility in APRS reporting.
+```
+4903.  N/07201.75W-
+```
+
+represent the position to the nearest minute. That is, the hundredths of minutes of latitude and longitude may take any value in the range 00–99.
+
+Thus the station may be located anywhere inside a bounding box having the following corner coordinates:
+
+| Corner | Latitude | Longitude |
+| :--- | :--- | :--- |
+| North West corner | 49 deg 3.99 mins N | 72 deg 1.99 mins W |
+| North East corner | 49 deg 3.99 mins N | 72 deg 1.00 mins W |
+| South East corner | 49 deg 3.00 mins N | 72 deg 1.00 mins W |
+| South West corner | 49 deg 3.00 mins N | 72 deg 1.99 mins W |

@@ -45,51 +45,35 @@ The table on the next page shows a complete list of all the different possible t
 |                   | Compressed lat/long/course/speed/radio range/altitude            | Area Object                                            |
 |                   | Symbol Table ID and Symbol Code                                  | Storm Data (in Comment field)                          |
 |                   | Raw weather station data                                         |                                                        |
-
-Weather
-Time (MDHM)
-Lat/long coordinates
-Compressed lat/long/course/speed/radio range/altitude
-Symbol Table ID and Symbol Code
-Raw weather station data
-Wind Direction and Speed
-Storm Data (in Comment field)
-Telemetry^ Telemetry (non Mic-E)^
-Messages,
-Bulletins and
-Announcements
-Addressee
-Message Text
-Message Identifier
-Message Acknowledgement
-Bulletin ID, Announcement ID
-Group Bulletin ID
-Queries
-Query Type
-Query Target Footprint
-Addressee (Directed Query)
-Responses
-Position
-Object/Item
-Weather
-Status
-Message
-Digipeater Trace
-Stations Heard
-Heard Statistics
-Station Capabilities
-Course and Speed
-Power, Effective Antenna Height/Gain/Directivity
-Pre-Calculated Radio Range
-Omni DF Signal Strength
-Area Object
-Wind Direction and Speed
-Status
-Time (DHM zulu)
-Status text
-Meteor Scatter Beam Heading/Power
-Maidenhead Locator (Grid Square)
-Altitude (Mic-E)
-E-mail message
-Other^ Third-Party forwarding
-Invalid Data/Test Data
+| Weather           | Time (MDHM)                                                      | Wind Direction and Speed                               |
+|                   | Lat/long coordinates                                             | Storm Data (in Comment field)                          |
+|                   | Compressed lat/long/course/speed/radio range/altitude            |                                                        |
+|                   | Symbol Table ID and Symbol Code                                  |                                                        |
+|                   | Raw weather station data                                         |                                                        |
+| Telemetry         | Telemetry (non Mic-E)                                            |                                                        |
+| Messages, Bulletins and Announcements | Addressee                                |                                                        |
+|                   | Message Text                                                     |                                                        |
+|                   | Message Identifier                                               |                                                        |
+|                   | Message Acknowledgement                                          |                                                        |
+|                   | Bulletin ID, Announcement ID                                     |                                                        |
+|                   | Group Bulletin ID                                                |                                                        |
+| Queries           | Query Type                                                       |                                                        |
+|                   | Query Target Footprint                                           |                                                        |
+|                   | Addressee (Directed Query)                                       |                                                        |
+| Responses         | Position                                                         | Course and Speed                                       |
+|                   | Object/Item                                                      | Power, Effective Antenna Height/Gain/Directivity       |
+|                   | Weather                                                          | Pre-Calculated Radio Range                             |
+|                   | Status                                                           | Omni DF Signal Strength                                |
+|                   | Message                                                          | Area Object                                            |
+|                   | Digipeater Trace                                                 | Wind Direction and Speed                               |
+|                   | Stations Heard                                                   |                                                        |
+|                   | Heard Statistics                                                 |                                                        |
+|                   | Station Capabilities                                             |                                                        |
+| Status            | Time (DHM zulu)                                                  |                                                        |
+|                   | Status text                                                      |                                                        |
+|                   | Meteor Scatter Beam Heading/Power                                |                                                        |
+|                   | Maidenhead Locator (Grid Square)                                 |                                                        |
+|                   | Altitude (Mic-E)                                                 |                                                        |
+|                   | E-mail message                                                   |                                                        |
+| Other             | Third-Party forwarding                                           |                                                        |
+|                   | Invalid Data/Test Data                                           |                                                        |

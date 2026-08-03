@@ -1,33 +1,39 @@
 ---
-order: "10.21"
+order: "10.20"
 title: Mic-E Telemetry Data
 ---
 
 # {{$frontmatter.order}} {{ $frontmatter.title }}
 
-Mic-E telemetry data in APRS allows stations to transmit sensor readings or other measurements alongside position and status information. This feature is useful for reporting environmental, equipment, or operational parameters.
+The Information field may optionally contain either Mic-E telemetry data values or Mic-E status text.
 
-## What is Mic-E Telemetry Data?
-- Optional data appended to the Mic-E information field
-- Can include sensor values such as voltage, temperature, pressure, or custom measurements
-- Encoded in a compact format for efficient transmission
+If the byte following the Symbol Table Identifier is one of the Telemetry Flag characters (`‘` or `0x1d`), then telemetry data follows:
 
-## Encoding in Mic-E
-- Telemetry data is appended after the standard position and status fields in the information field
-- The format and scaling of telemetry values are defined by the transmitting station
+Optional Mic-E Telemetry Data
 
-## Example
-A Mic-E information field with telemetry:
-```
-"`l4!>\"Test123,456,789"
-```
-This encodes position, status, and three telemetry values
+| Telemetry Flag | Telemetry Data Channels |        |        |        |        |
+| ---            | ---                     | ---    | ---    | ---    | ---    |
+| F              | Ch 1                    | Ch 2   | Ch 3   | Ch 4   | Ch 5   |
+| Bytes:         | 1                       | 1/2    | 1/2    | 1/2    | 1/2    |
 
-## Usage Notes
-- The meaning and scaling of telemetry values should be documented for receivers
-- Most APRS software can display Mic-E telemetry if properly configured
-- Telemetry enhances situational awareness for remote or automated stations
+The Telemetry Flag F is one of:
 
----
+| F | Meaning |
+| --- | --- |
+| `‘` | 2 printable hex telemetry values follow (channels 1 and 3). |
+| `'` | 5 printable hex telemetry values follow. |
+| `0x1d` | 5 binary telemetry values follow (Rev. 0 beta units only). |
 
-Mic-E telemetry data enables real-time remote monitoring in APRS networks.
+If F is `‘` or `'`, each channel requires 2 bytes, containing a 2-digit printable hexadecimal representation of a value ranging from 0–255. For example, 254 is represented as `FE`.
+
+If F is `0x1d`, each channel requires one byte, containing an 8-bit binary value.
+
+For example, if the telemetry data is `'7200007100`, the `'` indicates that 5 bytes of telemetry follow, coded in hexadecimal:
+
+| Channel | Hex | Decimal |
+| --- | --- | --- |
+| 1 | 0x72 | 114 |
+| 2 | 0x00 | 0 |
+| 3 | 0x00 | 0 |
+| 4 | 0x71 | 113 |
+| 5 | 0x00 | 0 |

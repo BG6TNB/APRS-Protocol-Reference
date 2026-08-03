@@ -5,32 +5,40 @@ title: DF Reports
 
 # {{$frontmatter.order}} {{ $frontmatter.title }}
 
-DF (Direction Finding) reports are specialized APRS packets used to share information about the direction and strength of a received signal. These reports are valuable for radio foxhunting, interference tracking, and event coordination.
+DF Reports are contained in the Information field of an APRS AX.25 frame. The Bearing and Number/Range/Quality (BRG/NRQ) parameters follow the Data Extension field.
 
-## What is a DF Report?
-- A packet containing the observer's position, the bearing to the signal source, signal strength, and often additional data such as quality or range
-- Used by stations participating in direction finding activities
+**Note:** The BRG/NRQ parameters are only meaningful when the report contains the DF symbol (i.e. the Symbol Table ID is `/` and the Symbol Code is `\`).
 
-## Standard Format
-- DF reports typically include fields such as BRG (bearing), DF (signal strength), Q (quality), and RNG (range)
-- The format may vary depending on the application and software
+**Note:** If the DF station is fixed, the Course value is zero. If the station is moving, the Course value is non-zero.
 
-## Example
+## DF Report Format — without Timestamp
+
+The Data Extension may contain one of: Course/Speed, Power/Height/Gain/Dir, or Radio Range.
+
 ```
-4903.50N/07201.75W>DF BRG=045 DF=120 Q=8 RNG=10km
+! or =   Lat   Sym Table ID   Long   Symbol Code   Data Extension   /BRG/NRQ   Comment (max 28 chars)
+                  (/)                   (\)              7                8              0-28
+Bytes:    1     8        1        9         1              7                8             0-28
 ```
-This represents:
-- Observer's position: 49°03.50' N, 72°01.75' W
-- Bearing to signal: 45°
-- Signal strength: 120 (unit depends on context)
-- Quality: 8 (on a defined scale)
-- Range: 10 kilometers
 
-## Usage Notes
-- DF reports are essential for collaborative signal tracking and event management
-- The meaning of each field should be documented for consistent interpretation
-- Not all APRS software supports DF reports
+Examples
+```
+=4903.50N/07201.75W\088/036/270/729    no timestamp, course/speed/bearing/NRQ, with APRS messaging. DF station moving (CSE is non-zero).
+=4903.50N/07201.75W\ 000 /036/270/729  Same report, DF station fixed (CSE= 000 ).
+```
 
----
+## DF Report Format — with Timestamp
 
-DF reports in APRS enable effective direction finding and signal source localization.
+The Data Extension may contain one of: Course/Speed, Power/Height/Gain/Dir, or Radio Range.
+
+```
+/ or @   Time        Lat   Sym Table ID   Long   Symbol Code   Data Extension   /BRG/NRQ   Comment (max 28 chars)
+         DHM/HMS           (/)                   (\)              7                8              0-28
+Bytes:    1      7     8        1        9         1              7                8             0-28
+```
+
+Examples
+```
+@092345z4903.50N/07201.75W\088/036/270/729   with timestamp, course/speed/bearing/NRQ, with APRS messaging.
+/092345z4903.50N/07201.75W\000/000/270/729   with timestamp, bearing/NRQ, no course/speed, no APRS messaging.
+```

@@ -5,28 +5,27 @@ title: Range Circle Plot
 
 # {{$frontmatter.order}} {{ $frontmatter.title }}
 
-A range circle plot is an optional data extension in APRS used to visually represent the coverage area or range of a station on a map.
+On receipt, APRS uses the p, h, g and d codes to calculate the usable radio range (in miles), for plotting a range circle representing the local radio horizon around the station. The radio range is calculated as follows:
 
-## What is a Range Circle Plot?
-- A graphical circle centered on a station's reported position
-- Indicates the estimated or intended communication range
-
-## Encoding in APRS
-- The range value (radius) is typically included as a numeric field, such as "RNG=20km"
-- The plot is rendered by APRS software based on the provided center and radius
-
-## Example
 ```
-4903.50N/07201.75W>RNG=20km
+power = p^2
+Height-above-average-terrain (haat) = 10 × 2^h
+gain = 10^(g/10)
+range = √(2 × haat × √((power/10) × (gain/2)))
 ```
-This represents:
-- A range circle with a 20-kilometer radius centered at the given coordinates
 
-## Usage Notes
-- Range circles are useful for network planning, event management, and situational awareness
-- The actual coverage may vary due to terrain and other factors
-- Not all APRS software displays range circles
+Thus, for `PHG5132`:
 
----
+```
+power = 5^2 = 25 watts
+haat = 10 × 2^1 = 20 feet
+gain = 10^(3/10) = 1.995262
+range = √(2 × 20 × √((25/10) × (1.995262/2)))
+      ~ 7.9 miles
+```
 
-Range circle plots in APRS provide a visual indication of station coverage and connectivity.
+As the direction of maximum gain is due east, APRS will draw a range circle of radius 8 miles around the station, offset by 2.7 miles (i.e. one third of 8 miles) in an easterly direction.
+
+::: tip Note
+In the absence of any PHG data, stations are assumed to be running 10 watts to a 3dB omni antenna at 20 feet, resulting in a 6-mile radius range circle, centered on the station.
+:::

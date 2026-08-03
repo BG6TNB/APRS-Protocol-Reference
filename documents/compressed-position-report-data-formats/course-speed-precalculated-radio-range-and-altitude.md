@@ -5,30 +5,39 @@ title: Course/Speed, Pre-Calculated Radio Range and Altitude
 
 # {{$frontmatter.order}} {{ $frontmatter.title }}
 
-In APRS compressed position reports, course, speed, pre-calculated radio range, and altitude can be included as additional data fields, providing a richer description of a station's status and capabilities.
+The two `cs` bytes following the Symbol Code character can contain either the compressed course and speed or the compressed pre-calculated radio range or the station's altitude. These two bytes are in base 91 format.
 
-## What Are These Fields?
-- **Course**: The direction of travel, in degrees (0–359)
-- **Speed**: The rate of movement, in knots
-- **Pre-Calculated Radio Range**: The estimated communication range, in kilometers or miles
-- **Altitude**: The height above mean sea level, in feet
+In the special case of `c` = ` ` (space), there is no course, speed or range data, in which case the `csT` bytes are ignored.
 
-## Encoding in Compressed Reports
-- These values are encoded using base-91 notation and occupy specific positions in the 13-character compressed string
-- The encoding allows for compact representation of multiple fields
+## Course/Speed
 
-## Example
-A compressed string with course, speed, and altitude:
+If the ASCII code for `c` is in the range `!` to `z` inclusive — corresponding to numeric values in the range 0–89 decimal (i.e. after subtracting 33 from the ASCII code) — then `cs` represents a compressed course/speed value:
+
 ```
-!/5L!<*e>/'6X
+course = c x 4
+speed = 1.08^s – 1
 ```
-The relevant characters encode the additional fields
 
-## Usage Notes
-- Decoding requires knowledge of the APRS compressed format specification
-- Not all compressed reports include all fields; presence depends on the packet type and available data
-- These fields enhance situational awareness and tracking accuracy
+For example, if the `cs` characters are `7P`, the corresponding values of `c` and `s` (after subtracting 33 from the ASCII character code) are 22 and 47 respectively. Substituting these values in the above equations:
 
----
+```
+course = 22 x 4 = 88 degrees
+speed = 1.08^47 – 1 = 36.2 knots
+```
 
-Including course, speed, radio range, and altitude in compressed APRS reports provides a comprehensive view of station status.
+## Pre-Calculated Radio Range
+
+If `c` = `{`, then `cs` represents a compressed pre-calculated radio range value:
+
+```
+range = 2 x 1.08^s
+```
+
+For example, if the `cs` bytes are `{?`, the ASCII code for `?` is 63, so the value of `s` is 30 (i.e. 63-33). Thus:
+
+```
+range = 2 x 1.08^30
+      ~ 20 miles
+```
+
+So APRS will draw a circle of radius 20 miles around the station plot on the screen.

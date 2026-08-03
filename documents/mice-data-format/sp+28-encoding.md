@@ -5,23 +5,102 @@ title: SP+28 Encoding
 
 # {{$frontmatter.order}} {{ $frontmatter.title }}
 
-SP+28 encoding is a method used in the Mic-E protocol to encode numeric values, such as position or telemetry data, into printable ASCII characters. It is similar to DC+28 and SE+28 encoding, with "SP" referring to a specific field or context within the Mic-E format.
+The SP+28 byte contains the encoded speed, in hundreds/tens of knots, according to this table:
 
-## What is SP+28 Encoding?
-- "SP" stands for a specific encoding context (e.g., Speed or Special Purpose) in the Mic-E protocol.
-- The "+28" means that 28 is added to the original value before converting it to an ASCII character.
+**SP+28 Speed Encoding (hundreds/tens of knots)**
 
-## How is it Used?
-- The value to be encoded is incremented by 28.
-- The resulting number is converted to its ASCII character equivalent.
-- This ensures the encoded value is a printable character, suitable for packet transmission.
+For speeds in the range 0–199 knots, there are two encoding schemes in existence. Hence there are two columns for the ASCII character, and two columns for the corresponding SP+28 byte values.
 
-## Example
-Suppose you want to encode the value 55:
-- Add 28: 55 + 28 = 83
-- ASCII character 83 is "S"
-- So, the value 55 is encoded as "S" in the Mic-E packet.
+| Speed (knots) | ASCII Char (Scheme 1) | SP+28 byte (Scheme 1) | ASCII Char (Scheme 2) | SP+28 byte (Scheme 2) |
+| :---: | :---: | :---: | :---: | :---: |
+| 0–9     | l   | 108 | 0x1c   | 28 |
+| 10–19   | m   | 109 | 0x1d   | 29 |
+| 20–29   | n   | 110 | 0x1e   | 30 |
+| 30–39   | o   | 111 | 0x1f   | 31 |
+| 40–49   | p   | 112 | space  | 32 |
+| 50–59   | q   | 113 | !      | 33 |
+| 60–69   | r   | 114 | "      | 34 |
+| 70–79   | s   | 115 | #      | 35 |
+| 80–89   | t   | 116 | $      | 36 |
+| 90–99   | u   | 117 | %      | 37 |
+| 100–109 | v   | 118 | &      | 38 |
+| 110–119 | w   | 119 | '      | 39 |
+| 120–129 | x   | 120 | (      | 40 |
+| 130–139 | y   | 121 | )      | 41 |
+| 140–149 | z   | 122 | *      | 42 |
+| 150–159 | {   | 123 | +      | 43 |
+| 160–169 | \|  | 124 | ,      | 44 |
+| 170–179 | }   | 125 | -      | 45 |
+| 180–189 | ~   | 126 | .      | 46 |
+| 190–199 | DEL | 127 | /      | 47 |
 
----
+For speeds in the range 200–799 knots, only Scheme 2 applies:
 
-SP+28 encoding is used in Mic-E to efficiently and reliably transmit numeric data fields as printable characters.
+| Speed (knots) | ASCII Char (Scheme 2) | SP+28 byte (Scheme 2) |
+| :---: | :---: | :---: |
+| 200–209 | 0 | 48  |
+| 210–219 | 1 | 49  |
+| 220–229 | 2 | 50  |
+| 230–239 | 3 | 51  |
+| 240–249 | 4 | 52  |
+| 250–259 | 5 | 53  |
+| 260–269 | 6 | 54  |
+| 270–279 | 7 | 55  |
+| 280–289 | 8 | 56  |
+| 290–299 | 9 | 57  |
+| 300–309 | : | 58  |
+| 310–319 | ; | 59  |
+| 320–329 | < | 60  |
+| 330–339 | = | 61  |
+| 340–349 | > | 62  |
+| 350–359 | ? | 63  |
+| 360–369 | @ | 64  |
+| 370–379 | A | 65  |
+| 380–389 | B | 66  |
+| 390–399 | C | 67  |
+| 400–409 | D | 68  |
+| 410–419 | E | 69  |
+| 420–429 | F | 70  |
+| 430–439 | G | 71  |
+| 440–449 | H | 72  |
+| 450–459 | I | 73  |
+| 460–469 | J | 74  |
+| 470–479 | K | 75  |
+| 480–489 | L | 76  |
+| 490–499 | M | 77  |
+| 500–509 | N | 78  |
+| 510–519 | O | 79  |
+| 520–529 | P | 80  |
+| 530–539 | Q | 81  |
+| 540–549 | R | 82  |
+| 550–559 | S | 83  |
+| 560–569 | T | 84  |
+| 570–579 | U | 85  |
+| 580–589 | V | 86  |
+| 590–599 | W | 87  |
+| 600–609 | X | 88  |
+| 610–619 | Y | 89  |
+| 620–629 | Z | 90  |
+| 630–639 | [ | 91  |
+| 640–649 | \ | 92  |
+| 650–659 | ] | 93  |
+| 660–669 | ^ | 94  |
+| 670–679 | _ | 95  |
+| 680–689 | ` | 96  |
+| 690–699 | a | 97  |
+| 700–709 | b | 98  |
+| 710–719 | c | 99  |
+| 720–729 | d | 100 |
+| 730–739 | e | 101 |
+| 740–749 | f | 102 |
+| 750–759 | g | 103 |
+| 760–769 | h | 104 |
+| 770–779 | i | 105 |
+| 780–789 | j | 106 |
+| 790–799 | k | 107 |
+
+**Note:** The ASCII characters `0x1c`, `0x1d`, `0x1e`, `0x1f` and `space` (in the range 28–32) are non-printing characters.
+
+For example, for a speed of 73 knots (i.e. in the range 70–79), the SP+28 byte may contain either `s` or `#`, depending on the encoding method used. Both are equally valid.
+
+The decoding algorithm described later handles either of these encoding schemes.

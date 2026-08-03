@@ -5,29 +5,11 @@ title: Maidenhead Locator (Grid Square)
 
 # {{$frontmatter.order}} {{ $frontmatter.title }}
 
-The Maidenhead Locator System (also known as grid squares) is a geographic coordinate system used by radio amateurs to succinctly describe locations. APRS supports the use of grid squares for position reporting, especially in contests or when precise coordinates are not needed.
+An alternative method of expressing a station's location is to provide a Maidenhead locator (grid square). There are four ways of doing this:
 
-## Format
-- A grid square is typically 4 or 6 characters (e.g., "FN31" or "FN31pr")
-- The format alternates letters and numbers: LLNN or LLNNLL
-- Each grid square represents a specific area on the Earth's surface
+- In a Status Report — e.g. IO91SX/- (/- represents the symbol for a "house").
+- In Mic-E Status Text — e.g. IO91SX/G (/G indicates a "grid square").
+- In the Destination Address — e.g. IO91SX. (obsolete).
+- In AX.25 beacon text, with the [ APRS Data Type Identifier — e.g. [IO91SX] (obsolete).
 
-## Example
-```
-FN31pr
-```
-This grid square covers a small area in the northeastern United States.
-
-## Usage in APRS
-- Some APRS packets may use the Maidenhead locator instead of latitude/longitude
-- Conversion tools are available to translate between grid squares and standard coordinates
-- Grid squares are especially useful for contests, events, and quick location sharing
-
-## Conversion Notes
-- The first two letters (LL) indicate a 20° x 10° area
-- The next two digits (NN) indicate a 2° x 1° area
-- The optional last two letters (LL) further subdivide the area
-
----
-
-The Maidenhead Locator System provides a compact way to share locations in APRS and amateur radio.
+Grid squares may be in 6-character form (as above) or in the shortened 4-character form (e.g. IO91).

@@ -5,33 +5,42 @@ title: Power, Effective Antenna Height/Gain/Directivity
 
 # {{$frontmatter.order}} {{ $frontmatter.title }}
 
-Power, effective antenna height, gain, and directivity are optional data extensions in APRS packets. They provide additional information about the transmitting station's radio setup, which can be useful for network planning and analysis.
+The 7-byte PHGphgd Data Extension specifies the transmitter power, effective antenna height-above-average-terrain, antenna gain and antenna directivity. APRS uses this information to plot radio range circles around stations.
 
-## What Are These Parameters?
-- **Power**: The transmitter output power, typically in watts.
-- **Effective Antenna Height**: The height of the antenna above average terrain, in meters or feet.
-- **Gain**: The antenna gain, usually in dB over isotropic (dBi) or dipole (dBd).
-- **Directivity**: The direction the antenna is pointed, in degrees (0–359).
+The 7 characters of this Data Extension are encoded as follows:
 
-## Encoding in APRS
-- These parameters are usually encoded as a string of numbers, often following the position or weather data.
-- The format and order may vary depending on the packet type and software.
+| Characters | Encoding |
+| :--- | :--- |
+| 1–3 | PHG (fixed) |
+| 4 | p — Power code |
+| 5 | h — Height code |
+| 6 | g — Antenna gain code |
+| 7 | d — Directivity code |
 
-## Example
+The PHG codes are listed in the table below:
+
+**PHG Codes**
+
+| phgd Code | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | Units |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
+| Power | 0 | 1 | 4 | 9 | 16 | 25 | 36 | 49 | 64 | 81 | watts |
+| Height | 10 | 20 | 40 | 80 | 160 | 320 | 640 | 1280 | 2560 | 5120 | feet |
+| Gain | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | dB |
+| Directivity | omni | 45 NE | 90 E | 135 SE | 180 S | 225 SW | 270 W | 315 NW | 360 N | | deg |
+
+The height code represents the effective height of the antenna above average local terrain, not above ground or sea level — this is to provide a rough indication of the antenna's effectiveness in the local area.
+
+The height code may in fact be any ASCII character 0–9 and above. This is so that larger heights for balloons, aircraft or satellites may be specified. For example:
+
+- `:` is the height code for 10240 feet (approximately 1.9 miles).
+- `;` is the height code for 20480 feet (approximately 3.9 miles), and so on.
+
+The Directivity code offsets the PHG circle by one third in the indicated direction. This means a front-to-back ratio of 2 to 1. Most often this is used to indicate a favored direction or a null, even if an omni antenna is at the site.
+
+An example of the PHG Data Extension:
+
 ```
-4903.50N/07201.75W>Test /PWR=50W/HT=10m/GAIN=6dBd/DIR=270
+PHG5132
 ```
-This represents:
-- Power: 50 watts
-- Antenna height: 10 meters
-- Gain: 6 dBd
-- Directivity: 270° (west)
 
-## Usage Notes
-- Not all stations report these parameters; they are optional.
-- Accurate reporting helps with network diagnostics and propagation studies.
-- Some compressed or alternative formats may encode these values differently.
-
----
-
-Including power, antenna height, gain, and directivity in APRS packets provides valuable context for signal analysis.
+means a power of 25 watts, an antenna height of 20 feet above the average local terrain, an antenna gain of 3 dB, and maximum gain due east.

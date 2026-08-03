@@ -5,24 +5,18 @@ title: Altitude
 
 # {{$frontmatter.order}} {{ $frontmatter.title }}
 
-Altitude in APRS compressed position reports is encoded as an optional field, allowing stations to report their height above mean sea level in a compact format.
+If the `T` byte indicates that the raw data originates from a GGA sentence (i.e. bits 4 and 3 of the `T` byte are `10`), then the sentence contains an altitude value, in feet. After compression, the compressed altitude data is placed in the `cs` bytes, such that:
 
-## How is Altitude Encoded?
-- Altitude is encoded using base-91 notation, typically as two characters in the compressed string
-- The encoded value represents altitude in feet
-
-## Example
-A compressed string with altitude:
 ```
-!/5L!<*e>/'6X
+altitude = 1.002^cs feet
 ```
-The relevant characters encode the altitude value
 
-## Usage Notes
-- Decoding requires knowledge of the APRS compressed format specification and base-91 conversion
-- Altitude is optional and may not be present in all compressed reports
-- Accurate altitude reporting is important for aircraft, balloons, and high-elevation stations
+For example, if the received `cs` bytes are `S]`, the computation is as follows:
 
----
-
-Altitude encoding in APRS compressed reports enables efficient transmission of vertical position data.
+- Subtract 33 from the ASCII code for each character:
+  - `c = 83 – 33 = 50`
+  - `s = 93 – 33 = 60`
+- Multiply `c` by 91 and add `s` to obtain `cs`:
+  - `cs = 50 x 91 + 60 = 4610`
+- Then altitude:
+  - `altitude = 1.002^4610 = 10004 feet`

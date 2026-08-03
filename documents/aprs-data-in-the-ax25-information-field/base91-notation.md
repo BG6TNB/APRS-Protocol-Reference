@@ -5,35 +5,20 @@ title: Base-91 Notation
 
 # {{$frontmatter.order}} {{ $frontmatter.title }}
 
-Base-91 notation is a compact encoding scheme used in APRS to efficiently represent numeric values using printable ASCII characters. It is primarily used in compressed position reports and other APRS data extensions to minimize packet length while maximizing the range of values that can be encoded.
+Two APRS data formats use base-91 notation: lat/long coordinates in compressed format (see Chapter 9) and the altitude in Mic-E format (see Chapter 10).
 
-## Purpose
-Base-91 encoding allows large numbers to be represented in fewer characters compared to decimal or hexadecimal, which is important for bandwidth efficiency in packet radio communications.
+Base-91 data is compressed into a short string of characters. All the characters are printable ASCII, with character codes in the range 33–124 decimal (i.e. `!` through `|`).
 
-## How It Works
-- Base-91 uses the ASCII characters from 33 ('!') to 123 ('z'), providing 91 possible values per character.
-- Each character represents a value from 0 to 90.
-- To encode a number, repeatedly divide by 91 and map the remainder to the corresponding ASCII character.
-- To decode, reverse the process by converting each character back to its numeric value and combining them.
-
-## Usage in APRS
-Base-91 is most commonly used in:
-- Compressed position reports (latitude, longitude, course, speed, altitude)
-- Some telemetry and data extension fields
+To compute the base-91 ASCII character string for a given data value, the value is divided by progressively reducing powers of 91 until the remainder is less than 91. At each step, 33 is added to the modulus of the division process to obtain the corresponding ASCII character code.
 
 ## Example
-Suppose you want to encode the value 12345 in base-91:
-1. 12345 ÷ 91 = 135, remainder 60
-2. 135 ÷ 91 = 1, remainder 44
-3. 1 ÷ 91 = 0, remainder 1
 
-So the three base-91 digits are: 1, 44, 60
-- Add 33 to each to get ASCII: 34 ('"'), 77 ('M'), 93 (']')
-- The encoded string is: `"M]`
+For a data value of 12345678:
 
-## Reference
-For more details, see the APRS Compressed Position Report specification and the relevant sections in this documentation.
+```
+12345678 / 91^3 = modulus 16, remainder 288542
+288542   / 91^2 = modulus 34, remainder 6988
+6988     / 91^1 = modulus 76, remainder 72
+```
 
----
-
-Base-91 notation is a key part of APRS's ability to transmit rich data efficiently over limited-bandwidth radio channels.
+The four ASCII character codes are thus 49 (i.e. 16 + 33), 67 (i.e. 34 + 33), 109 (i.e. 76 + 33) and 105 (i.e. 72 + 33), corresponding to the ASCII string `1Cmi`.

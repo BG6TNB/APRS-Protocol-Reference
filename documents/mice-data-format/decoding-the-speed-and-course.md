@@ -5,32 +5,13 @@ title: Decoding the Speed and Course
 
 # {{$frontmatter.order}} {{ $frontmatter.title }}
 
-In the Mic-E protocol, speed and course information are encoded into specific ASCII characters using the DC+28 encoding method. Decoding these values requires reversing the encoding process to extract the original numeric values.
+To decode the speed and course:
 
-## Encoding Method
-- Both speed and course are encoded as single ASCII characters in the Mic-E information field.
-- The value is encoded by adding 28 to the original number (DC+28), then converting the result to its ASCII character equivalent.
+- **SP+28**: To obtain the speed in tens of knots, subtract 28 from the SP+28 value and multiply by 10.
+- **DC+28**: Subtract 28 from the DC+28 value and divide the result by 10. The quotient is the units of speed. The remainder is the course in hundreds of degrees.
+- **SE+28**: To obtain the tens and units of degrees, subtract 28 from the SE+28 value.
 
-## Decoding Process
-1. Extract the relevant character from the Mic-E packet (for speed or course).
-2. Convert the ASCII character to its decimal value (using an ASCII table).
-3. Subtract 28 from the decimal value to obtain the original speed or course.
+Finally, make these speed and course adjustments:
 
-## Example
-Suppose the speed character in the packet is "N":
-- ASCII value of "N" is 78
-- Subtract 28: 78 - 28 = 50
-- The decoded speed is 50 knots
-
-Similarly, if the course character is "d":
-- ASCII value of "d" is 100
-- Subtract 28: 100 - 28 = 72
-- The decoded course is 72 degrees
-
-## Notes
-- Speed is typically reported in knots, and course in degrees (0–360).
-- Some Mic-E implementations may use additional logic for special cases (e.g., speeds above 127 knots).
-
----
-
-Decoding speed and course from Mic-E packets is straightforward once the DC+28 encoding method is understood.
+- If the computed speed is ≥ 800 knots, subtract 800.
+- If the computed course is ≥ 400 degrees, subtract 400.

@@ -1,18 +1,39 @@
 ---
 order: "18"
-title: USER-DEFINED DATA FORMAT
+title: User-Defined Data Format
 ---
 
 # {{$frontmatter.order}} {{ $frontmatter.title }}
 
-APRS allows users to define their own data formats for special purposes using the '{' (left curly brace) Data Type Identifier. This enables experimental or application-specific data to be transmitted within the APRS network without conflicting with standard formats.
+The APRS protocol defines many different data formats, but it cannot anticipate every possible data type that programmers may wish to send. The User-Defined data format is designed to fill these gaps. Under this system, program authors are free to send data in any format they choose.
 
-A user-defined APRS packet begins with the '{' character in the Information field, followed by the custom data payload. The interpretation of the payload is left to the application or user; standard APRS software will typically ignore or pass through these packets without processing.
+The data in the AX.25 Information field consists of a three-character header:
 
-**Example:**
+- `{` — APRS Data Type Identifier.
+- `U` — A one-character User ID.
+- `X` — A one-character user-defined packet type.
+
+The APRS Working Group will issue User IDs to program authors who express a need.
+
+> [Keep in mind there is a limited number of available User IDs, so please do not request one unless you have a true need. The Working Group may require an explanation of your need prior to issuing a character. If only one or two data formats are needed, those may be issued from a User ID pool].
+
+For experimentation, or prior to being issued a User ID, anyone may utilize the User ID character of `{` without prior notification or approval (i.e. packets beginning with `&#123;&#123;` are experimental, and may be sent by anyone).
+
+**Important Note:** Although there is no restriction on the nature of user-defined data, it is highly recommended that it is represented in printable 7-bit ASCII character form.
+
+## User-Defined Data Format
+
 ```
-{MYDATA:123,456,789
+{   User ID U   User-Defined Packet Type X   User-defined data (printable ASCII recommended)
+Bytes: 1       1                  1                                  n
 ```
-In this example, '{' indicates a user-defined format, and 'MYDATA:123,456,789' is the custom data.
 
-Note: Use user-defined formats with care to avoid network congestion and ensure compatibility with other APRS users.
+Examples
+```
+{Q1qwerty   User ID = Q, User-defined packet type = 1.
+{{zasdfg    User ID undefined (experimental), User-defined packet type = z.
+```
+
+This is envisioned as a way for authors to experiment and build in features specific to their programs, without the danger of a non-standard packet crashing other authors' programs. In keeping with the spirit of the APRS protocol, authors are encouraged to make these formats public. The APRS Working Group will maintain a web site defining all of the assigned User IDs, and either the packet formats provided by the author, or links to their own web sites which define their formats.
+
+Generally, all formats using this method will be considered optional. No program is required to decode any of these packets, and must ignore any it does not decode. However, it is possible that in the future some of these formats may prove to be of sufficient utility and interest to the entire APRS community that they will be specifically included in future versions of the APRS protocol.

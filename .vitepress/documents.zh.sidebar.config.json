@@ -1,0 +1,714 @@
+[
+    {
+        "text": "本规范的结构",
+        "link": "/zh/documents/the-structure-of-this-specification"
+    },
+    {
+        "text": "APRS 简介",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "什么是 APRS？",
+                "link": "/zh/documents/introduction-to-aprs/what-is-aprs"
+            },
+            {
+                "text": "APRS 特性",
+                "link": "/zh/documents/introduction-to-aprs/aprs-features"
+            }
+        ]
+    },
+    {
+        "text": "APRS 设计理念",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "网络周期时间",
+                "link": "/zh/documents/the-aprs-design-philosophy/net-cycle-time"
+            },
+            {
+                "text": "数据包定时",
+                "link": "/zh/documents/the-aprs-design-philosophy/packet-timing"
+            },
+            {
+                "text": "通用数字中继",
+                "link": "/zh/documents/the-aprs-design-philosophy/generic-digipeating"
+            },
+            {
+                "text": "明确传达地图视图",
+                "link": "/zh/documents/the-aprs-design-philosophy/communicating-map-views-unambiguously"
+            }
+        ]
+    },
+    {
+        "text": "APRS 与 AX.25",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "协议",
+                "link": "/zh/documents/aprs-and-ax25/protocols"
+            },
+            {
+                "text": "AX.25 帧",
+                "link": "/zh/documents/aprs-and-ax25/the-ax25-frame"
+            }
+        ]
+    },
+    {
+        "text": "AX.25 目的地址和源地址字段中的 APRS 数据",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "AX.25 目的地址字段",
+                "link": "/zh/documents/aprs-data-in-the-ax25-destination-and-source-address-fields/the-ax25-destination-address-field"
+            },
+            {
+                "text": "通用 APRS 目的地址",
+                "link": "/zh/documents/aprs-data-in-the-ax25-destination-and-source-address-fields/generic-aprs-destination-addresses"
+            },
+            {
+                "text": "带符号的通用 APRS 地址",
+                "link": "/zh/documents/aprs-data-in-the-ax25-destination-and-source-address-fields/generic-aprs-address-with-symbol"
+            },
+            {
+                "text": "APRS 软件版本号",
+                "link": "/zh/documents/aprs-data-in-the-ax25-destination-and-source-address-fields/aprs-software-version-number"
+            },
+            {
+                "text": "Mic-E 编码数据",
+                "link": "/zh/documents/aprs-data-in-the-ax25-destination-and-source-address-fields/mice-encoded-data"
+            },
+            {
+                "text": "目的地址中的 Maidenhead 网格定位器",
+                "link": "/zh/documents/aprs-data-in-the-ax25-destination-and-source-address-fields/maidenhead-grid-locator-in-destination-address"
+            },
+            {
+                "text": "备用网络",
+                "link": "/zh/documents/aprs-data-in-the-ax25-destination-and-source-address-fields/alternate-nets"
+            },
+            {
+                "text": "通用 APRS 数字中继路径",
+                "link": "/zh/documents/aprs-data-in-the-ax25-destination-and-source-address-fields/generic-aprs-digipeater-path"
+            },
+            {
+                "text": "源地址 SSID 用于指定符号",
+                "link": "/zh/documents/aprs-data-in-the-ax25-destination-and-source-address-fields/the-ax25-source-address-ssid-to-specify-symbols"
+            }
+        ]
+    },
+    {
+        "text": "AX.25 信息字段中的 APRS 数据",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "通用数据格式",
+                "link": "/zh/documents/aprs-data-in-the-ax25-information-field/generic-data-format"
+            },
+            {
+                "text": "APRS 数据类型标识符",
+                "link": "/zh/documents/aprs-data-in-the-ax25-information-field/aprs-data-type-identifier"
+            },
+            {
+                "text": "APRS 数据和数据扩展",
+                "link": "/zh/documents/aprs-data-in-the-ax25-information-field/aprs-data-and-data-extension"
+            },
+            {
+                "text": "注释字段",
+                "link": "/zh/documents/aprs-data-in-the-ax25-information-field/comment-field"
+            },
+            {
+                "text": "Base-91 计数法",
+                "link": "/zh/documents/aprs-data-in-the-ax25-information-field/base91-notation"
+            },
+            {
+                "text": "APRS 数据单位",
+                "link": "/zh/documents/aprs-data-in-the-ax25-information-field/aprs-data-units"
+            }
+        ]
+    },
+    {
+        "text": "时间与位置格式",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "时间格式",
+                "link": "/zh/documents/time-and-position-formats/time-formats"
+            },
+            {
+                "text": "时间戳的使用",
+                "link": "/zh/documents/time-and-position-formats/use-of-timestamps"
+            },
+            {
+                "text": "纬度格式",
+                "link": "/zh/documents/time-and-position-formats/latitude-format"
+            },
+            {
+                "text": "经度格式",
+                "link": "/zh/documents/time-and-position-formats/longitude-format"
+            },
+            {
+                "text": "位置坐标",
+                "link": "/zh/documents/time-and-position-formats/position-coordinates"
+            },
+            {
+                "text": "位置模糊度",
+                "link": "/zh/documents/time-and-position-formats/position-ambiguity"
+            },
+            {
+                "text": "默认空位置",
+                "link": "/zh/documents/time-and-position-formats/default-null-position"
+            },
+            {
+                "text": "Maidenhead 定位器（网格方格）",
+                "link": "/zh/documents/time-and-position-formats/maidenhead-locator-grid-square"
+            },
+            {
+                "text": "NMEA 数据",
+                "link": "/zh/documents/time-and-position-formats/nmea-data"
+            },
+            {
+                "text": "海拔高度",
+                "link": "/zh/documents/time-and-position-formats/altitude"
+            }
+        ]
+    },
+    {
+        "text": "APRS 数据扩展",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "航向与速度",
+                "link": "/zh/documents/aprs-data-extensions/course-and-speed"
+            },
+            {
+                "text": "风向与风速",
+                "link": "/zh/documents/aprs-data-extensions/wind-direction-and-wind-speed"
+            },
+            {
+                "text": "功率、有效天线高度/增益/方向性",
+                "link": "/zh/documents/aprs-data-extensions/power-effective-antenna-height-gain-directivity"
+            },
+            {
+                "text": "距离圈图",
+                "link": "/zh/documents/aprs-data-extensions/range-circle-plot"
+            },
+            {
+                "text": "预计算无线电距离",
+                "link": "/zh/documents/aprs-data-extensions/precalculated-radio-range"
+            },
+            {
+                "text": "全向测向信号强度",
+                "link": "/zh/documents/aprs-data-extensions/omnidf-signal-strength"
+            },
+            {
+                "text": "方位与编号/距离/质量",
+                "link": "/zh/documents/aprs-data-extensions/bearing-and-number-range-quality"
+            },
+            {
+                "text": "区域对象描述符",
+                "link": "/zh/documents/aprs-data-extensions/area-object-descriptor"
+            }
+        ]
+    },
+    {
+        "text": "位置与测向报告数据格式",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "位置报告",
+                "link": "/zh/documents/position-and-df-report-data-formats/position-reports"
+            },
+            {
+                "text": "测向报告",
+                "link": "/zh/documents/position-and-df-report-data-formats/df-reports"
+            }
+        ]
+    },
+    {
+        "text": "压缩位置报告数据格式",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "数据压缩的优势",
+                "link": "/zh/documents/compressed-position-report-data-formats/the-advantages-of-data-compression"
+            },
+            {
+                "text": "压缩数据格式",
+                "link": "/zh/documents/compressed-position-report-data-formats/compressed-data-format"
+            },
+            {
+                "text": "符号",
+                "link": "/zh/documents/compressed-position-report-data-formats/symbol"
+            },
+            {
+                "text": "纬度/经度编码",
+                "link": "/zh/documents/compressed-position-report-data-formats/lat-long-encoding"
+            },
+            {
+                "text": "纬度/经度解码",
+                "link": "/zh/documents/compressed-position-report-data-formats/lat-long-decoding"
+            },
+            {
+                "text": "航向/速度、预计算无线电距离和海拔",
+                "link": "/zh/documents/compressed-position-report-data-formats/course-speed-precalculated-radio-range-and-altitude"
+            },
+            {
+                "text": "压缩类型（T）字节",
+                "link": "/zh/documents/compressed-position-report-data-formats/the-compression-type-t-byte"
+            },
+            {
+                "text": "海拔",
+                "link": "/zh/documents/compressed-position-report-data-formats/altitude"
+            },
+            {
+                "text": "新型追踪器",
+                "link": "/zh/documents/compressed-position-report-data-formats/new-trackers"
+            },
+            {
+                "text": "旧式追踪器",
+                "link": "/zh/documents/compressed-position-report-data-formats/old-trackers"
+            },
+            {
+                "text": "压缩报告格式",
+                "link": "/zh/documents/compressed-position-report-data-formats/compressed-report-formats"
+            }
+        ]
+    },
+    {
+        "text": "Mic-E 数据格式",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "Mic-E 数据格式",
+                "link": "/zh/documents/mice-data-format/mice-data-format"
+            },
+            {
+                "text": "Mic-E 数据载荷",
+                "link": "/zh/documents/mice-data-format/mice-data-payload"
+            },
+            {
+                "text": "Mic-E 目的地址字段",
+                "link": "/zh/documents/mice-data-format/mice-destination-address-field"
+            },
+            {
+                "text": "目的地址字段编码",
+                "link": "/zh/documents/mice-data-format/destination-address-field-encoding"
+            },
+            {
+                "text": "Mic-E 消息",
+                "link": "/zh/documents/mice-data-format/mice-messages"
+            },
+            {
+                "text": "目的地址 SSID 字段",
+                "link": "/zh/documents/mice-data-format/destination-address-ssid-field"
+            },
+            {
+                "text": "Mic-E 信息字段",
+                "link": "/zh/documents/mice-data-format/mice-information-field"
+            },
+            {
+                "text": "信息字段数据",
+                "link": "/zh/documents/mice-data-format/information-field-data"
+            },
+            {
+                "text": "经度度数编码",
+                "link": "/zh/documents/mice-data-format/longitude-degrees-encoding"
+            },
+            {
+                "text": "经度分钟编码",
+                "link": "/zh/documents/mice-data-format/longitude-minutes-encoding"
+            },
+            {
+                "text": "经度百分之一分钟编码",
+                "link": "/zh/documents/mice-data-format/longitude-hundredths-of-minutes-encoding"
+            },
+            {
+                "text": "速度与航向编码",
+                "link": "/zh/documents/mice-data-format/speed-and-course-encoding"
+            },
+            {
+                "text": "SP+28 编码",
+                "link": "/zh/documents/mice-data-format/sp+28-encoding"
+            },
+            {
+                "text": "DC+28 编码",
+                "link": "/zh/documents/mice-data-format/dc+28-encoding"
+            },
+            {
+                "text": "SE+28 编码",
+                "link": "/zh/documents/mice-data-format/se+28-encoding"
+            },
+            {
+                "text": "Mic-E 速度与航向编码示例",
+                "link": "/zh/documents/mice-data-format/example-of-mice-speed-and-course-encoding"
+            },
+            {
+                "text": "解码速度与航向",
+                "link": "/zh/documents/mice-data-format/decoding-the-speed-and-course"
+            },
+            {
+                "text": "信息字段数据解码示例",
+                "link": "/zh/documents/mice-data-format/example-of-decoding-the-information-field-data"
+            },
+            {
+                "text": "Mic-E 位置模糊度",
+                "link": "/zh/documents/mice-data-format/mice-position-ambiguity"
+            },
+            {
+                "text": "Mic-E 遥测数据",
+                "link": "/zh/documents/mice-data-format/mice-telemetry-data"
+            },
+            {
+                "text": "Mic-E 状态文本",
+                "link": "/zh/documents/mice-data-format/mice-status-text"
+            },
+            {
+                "text": "Mic-E 状态文本字段中的 Maidenhead 定位器",
+                "link": "/zh/documents/mice-data-format/maidenhead-locator-in-the-mice-status-text-field"
+            },
+            {
+                "text": "Mic-E 状态文本字段中的海拔",
+                "link": "/zh/documents/mice-data-format/altitude-in-the-mice-status-text-field"
+            },
+            {
+                "text": "非 APRS 网络中的 Mic-E 数据",
+                "link": "/zh/documents/mice-data-format/mice-data-in-nonaprs-networks"
+            }
+        ]
+    },
+    {
+        "text": "对象与项目报告",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "对象与项目",
+                "link": "/zh/documents/object-and-item-reports/objects-and-items"
+            },
+            {
+                "text": "替换对象/项目",
+                "link": "/zh/documents/object-and-item-reports/replacing-an-object-item"
+            },
+            {
+                "text": "删除对象/项目",
+                "link": "/zh/documents/object-and-item-reports/killing-an-object-item"
+            },
+            {
+                "text": "对象报告格式",
+                "link": "/zh/documents/object-and-item-reports/object-report-format"
+            },
+            {
+                "text": "项目报告格式",
+                "link": "/zh/documents/object-and-item-reports/item-report-format"
+            },
+            {
+                "text": "区域对象",
+                "link": "/zh/documents/object-and-item-reports/area-objects"
+            },
+            {
+                "text": "路标对象/项目",
+                "link": "/zh/documents/object-and-item-reports/signpost-objects-items"
+            },
+            {
+                "text": "过时的对象格式",
+                "link": "/zh/documents/object-and-item-reports/obsolete-object-format"
+            }
+        ]
+    },
+    {
+        "text": "天气报告",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "天气报告类型",
+                "link": "/zh/documents/weather-reports/weather-report-types"
+            },
+            {
+                "text": "数据类型标识符",
+                "link": "/zh/documents/weather-reports/data-type-identifiers"
+            },
+            {
+                "text": "原始天气报告",
+                "link": "/zh/documents/weather-reports/raw-weather-reports"
+            },
+            {
+                "text": "无位置天气报告",
+                "link": "/zh/documents/weather-reports/positionless-weather-reports"
+            },
+            {
+                "text": "APRS 软件类型",
+                "link": "/zh/documents/weather-reports/aprs-software-type"
+            },
+            {
+                "text": "天气单位类型",
+                "link": "/zh/documents/weather-reports/weather-unit-type"
+            },
+            {
+                "text": "无位置天气数据",
+                "link": "/zh/documents/weather-reports/positionless-weather-data"
+            },
+            {
+                "text": "原始和无位置气象站的位置",
+                "link": "/zh/documents/weather-reports/location-of-a-raw-and-positionless-weather-stations"
+            },
+            {
+                "text": "原始和无位置气象站的符号",
+                "link": "/zh/documents/weather-reports/symbols-with-raw-and-positionless-weather-stations"
+            },
+            {
+                "text": "带时间戳和位置的完整天气报告",
+                "link": "/zh/documents/weather-reports/complete-weather-reports-with-timestamp-and-position"
+            },
+            {
+                "text": "风暴数据",
+                "link": "/zh/documents/weather-reports/storm-data"
+            },
+            {
+                "text": "美国国家气象局公告",
+                "link": "/zh/documents/weather-reports/national-weather-service-bulletins"
+            }
+        ]
+    },
+    {
+        "text": "遥测数据",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "遥测报告格式",
+                "link": "/zh/documents/telemetry-data/telemetry-report-format"
+            },
+            {
+                "text": "遥测参数的空中定义",
+                "link": "/zh/documents/telemetry-data/onair-definition-of-telemetry-parameters"
+            },
+            {
+                "text": "参数名称消息",
+                "link": "/zh/documents/telemetry-data/parameter-name-message"
+            },
+            {
+                "text": "单位/标签消息",
+                "link": "/zh/documents/telemetry-data/unit-label-message"
+            },
+            {
+                "text": "方程系数消息",
+                "link": "/zh/documents/telemetry-data/equation-coefficients-message"
+            },
+            {
+                "text": "位标志/项目名称消息",
+                "link": "/zh/documents/telemetry-data/bit-sense-project-name-message"
+            }
+        ]
+    },
+    {
+        "text": "消息、公告与通知",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "消息",
+                "link": "/zh/documents/messages-bulletins-and-announcements/messages"
+            },
+            {
+                "text": "消息确认",
+                "link": "/zh/documents/messages-bulletins-and-announcements/message-acknowledgement"
+            },
+            {
+                "text": "消息拒绝",
+                "link": "/zh/documents/messages-bulletins-and-announcements/message-rejection"
+            },
+            {
+                "text": "多重确认",
+                "link": "/zh/documents/messages-bulletins-and-announcements/multiple-acknowledgements"
+            },
+            {
+                "text": "消息组",
+                "link": "/zh/documents/messages-bulletins-and-announcements/message-groups"
+            },
+            {
+                "text": "通用公告",
+                "link": "/zh/documents/messages-bulletins-and-announcements/general-bulletins"
+            },
+            {
+                "text": "通知",
+                "link": "/zh/documents/messages-bulletins-and-announcements/announcements"
+            },
+            {
+                "text": "分组公告",
+                "link": "/zh/documents/messages-bulletins-and-announcements/group-bulletins"
+            },
+            {
+                "text": "美国国家气象局公告",
+                "link": "/zh/documents/messages-bulletins-and-announcements/national-weather-service-bulletins"
+            },
+            {
+                "text": "NTS 无线电报",
+                "link": "/zh/documents/messages-bulletins-and-announcements/nts-radiograms"
+            },
+            {
+                "text": "过时的公告和通知格式",
+                "link": "/zh/documents/messages-bulletins-and-announcements/obsolete-bulletin-and-announcement-format"
+            },
+            {
+                "text": "公告和通知实施建议",
+                "link": "/zh/documents/messages-bulletins-and-announcements/bulletin-and-announcement-implementation-recommendations"
+            }
+        ]
+    },
+    {
+        "text": "站点能力、查询与响应",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "站点能力",
+                "link": "/zh/documents/station-capabilities-queries-and-responses/station-capabilities"
+            },
+            {
+                "text": "查询与响应",
+                "link": "/zh/documents/station-capabilities-queries-and-responses/queries-and-responses"
+            },
+            {
+                "text": "通用查询",
+                "link": "/zh/documents/station-capabilities-queries-and-responses/general-queries"
+            },
+            {
+                "text": "定向站点查询",
+                "link": "/zh/documents/station-capabilities-queries-and-responses/directed-station-queries"
+            }
+        ]
+    },
+    {
+        "text": "状态报告",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "带波束航向和有效辐射功率的状态报告",
+                "link": "/zh/documents/status-reports/status-report-with-beam-heading-and-effective-radiated-power"
+            },
+            {
+                "text": "带 Maidenhead 网格定位器的状态报告",
+                "link": "/zh/documents/status-reports/status-report-with-maidenhead-grid-locator"
+            },
+            {
+                "text": "发送状态报告",
+                "link": "/zh/documents/status-reports/transmitting-status-reports"
+            }
+        ]
+    },
+    {
+        "text": "网络隧道与第三方数字中继",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "第三方网络",
+                "link": "/zh/documents/network-tunneling-and-thirdparty-digipeating/thirdparty-networks"
+            },
+            {
+                "text": "源路径头",
+                "link": "/zh/documents/network-tunneling-and-thirdparty-digipeating/source-path-header"
+            },
+            {
+                "text": "第三方头",
+                "link": "/zh/documents/network-tunneling-and-thirdparty-digipeating/thirdparty-header"
+            },
+            {
+                "text": "接收第三方数据包时的操作",
+                "link": "/zh/documents/network-tunneling-and-thirdparty-digipeating/action-on-receiving-a-thirdparty-packet"
+            },
+            {
+                "text": "通过互联网发送消息示例",
+                "link": "/zh/documents/network-tunneling-and-thirdparty-digipeating/an-example-of-sending-a-message-through-the-internet"
+            }
+        ]
+    },
+    {
+        "text": "用户自定义数据格式",
+        "link": "/zh/documents/userdefined-data-format"
+    },
+    {
+        "text": "其他数据包",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "无效数据或测试数据包",
+                "link": "/zh/documents/other-packets/invalid-data-or-test-data-packets"
+            },
+            {
+                "text": "所有其他数据包",
+                "link": "/zh/documents/other-packets/all-other-packets"
+            }
+        ]
+    },
+    {
+        "text": "APRS 符号",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "三种方法",
+                "link": "/zh/documents/aprs-symbols/three-methods"
+            },
+            {
+                "text": "符号表",
+                "link": "/zh/documents/aprs-symbols/the-symbol-tables"
+            },
+            {
+                "text": "AX.25 信息字段中的符号",
+                "link": "/zh/documents/aprs-symbols/symbols-in-the-ax25-information-field"
+            },
+            {
+                "text": "AX.25 信息字段中带符号的覆盖层",
+                "link": "/zh/documents/aprs-symbols/overlays-with-symbols-in-the-ax25-information-field"
+            },
+            {
+                "text": "AX.25 目的地址中的符号",
+                "link": "/zh/documents/aprs-symbols/symbols-in-the-ax25-destination-address"
+            },
+            {
+                "text": "AX.25 目的地址中带符号的覆盖层",
+                "link": "/zh/documents/aprs-symbols/overlays-with-symbols-in-the-ax25-destination-address"
+            },
+            {
+                "text": "源地址 SSID 中的符号",
+                "link": "/zh/documents/aprs-symbols/symbol-in-the-source-address-ssid"
+            },
+            {
+                "text": "符号优先级",
+                "link": "/zh/documents/aprs-symbols/symbol-precedence"
+            }
+        ]
+    },
+    {
+        "text": "附录 1：APRS 数据格式",
+        "link": "/zh/documents/appendix-1-aprs-data-formats"
+    },
+    {
+        "text": "附录 2：APRS 符号表",
+        "link": "/zh/documents/appendix-2-the-aprs-symbol-tables"
+    },
+    {
+        "text": "附录 3：7 位 ASCII 码表",
+        "link": "/zh/documents/appendix-3-7bit-ascii-code-table"
+    },
+    {
+        "text": "附录 4：十进制转十六进制换算表",
+        "link": "/zh/documents/appendix-4-decimaltohex-conversion-table"
+    },
+    {
+        "text": "附录 5：术语表",
+        "collapsed": true,
+        "items": [
+            {
+                "text": "单位换算表",
+                "link": "/zh/documents/appendix-5-glossary/units-conversion-table"
+            },
+            {
+                "text": "华氏/摄氏温度换算公式",
+                "link": "/zh/documents/appendix-5-glossary/fahrenheit-celsius-temperature-conversion-equations"
+            }
+        ]
+    },
+    {
+        "text": "附录 6：参考文献",
+        "link": "/zh/documents/appendix-6-references"
+    },
+    {
+        "text": "附录 7：文档发布历史",
+        "link": "/zh/documents/appendix-7-document-release-history"
+    }
+]

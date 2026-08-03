@@ -19,5 +19,3 @@ title: Units Conversion Table
 | meters / second | knots | 0.51444'  |           |
 | miles per hour (mph) | meters / second | 0.44704 | |
 | meters / second | miles per hour (mph) | 0.44704 | |
-
-（建议完整迁移表格，便于查阅）

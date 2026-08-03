@@ -5,18 +5,28 @@ title: Status Report with Maidenhead Grid Locator
 
 # {{$frontmatter.order}} {{ $frontmatter.title }}
 
-A status report can include a Maidenhead Grid Locator to indicate the station's position in a compact form. The grid locator is typically included in the status text field, either at the beginning or within the text, to allow easy parsing by receiving software.
+The Maidenhead grid locator may be 4 or 6 characters long, and must immediately follow the `>` Data Type Identifier.
 
-**Standard APRS Example:**
-```
->FN31pr Operating portable
-```
-Here, 'FN31pr' is the Maidenhead grid locator, followed by a free-text comment.
+All letters must be transmitted in upper case. Letters may be received in upper case or lower case.
 
-**Mic-E Example:**
-```
-@123456z4903.50N/07201.75W>FN31pr On the air
-```
-In this Mic-E packet, the status text '>FN31pr On the air' contains the grid locator.
+The Symbol Table Identifier and Symbol Code follow the locator.
 
-It is recommended to place the grid locator at the start of the status text for easier recognition by software. Not all devices support this feature, so check your equipment documentation.
+If the report also contains status text, the first character of the text must be a space.
+
+A Status Report with Maidenhead locator can not have a timestamp.
+
+## Status Report Format — with Maidenhead Grid Locator
+
+```
+>   Maidenhead Locator   Sym Table ID   Symbol Code   Status Text (starting with a space)
+        GG nn gg                              (max 54 chars)
+Bytes: 1      2 2 2                1              1                  1-54
+```
+
+Examples
+```
+>IO91SX/G
+>IO91/G
+>IO91SX/-  My house                                                    (Note the space at the start of the status text).
+>IO91SX/-V^B7 Meteor Scatter beam heading = 110 degrees, ERP = 490 watts.
+```

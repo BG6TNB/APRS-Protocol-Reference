@@ -5,31 +5,28 @@ title: Mic-E Status Text
 
 # {{$frontmatter.order}} {{ $frontmatter.title }}
 
-The Mic-E status text is a field in the APRS Mic-E packet format that conveys additional information about the station's status, activity, or other relevant notes. This field is flexible and can be used for a variety of purposes, such as indicating the operator's current activity, the state of the equipment, or custom messages.
+As an alternative to telemetry data, the packet may include Mic-E status text. The status text may be any length that fits in the rest of the Information field.
 
-## What is the Status Text?
-- The status text is a user-defined string appended to the end of a Mic-E packet.
-- It can include plain text, codes, or even location information (such as a Maidenhead locator).
-- The content is typically limited to a short message due to packet size constraints.
+The Mic-E status text must not start with `‘` or `0x1d`, otherwise it will be confused with telemetry data.
 
-## How is it Encoded?
-- In the Mic-E format, the status text follows the position and symbol fields in the packet.
-- It is transmitted as plain ASCII text.
-- Some devices allow the status text to be set manually, while others may generate it automatically based on the device's state.
+It is possible to include a standard APRS-formatted position in the Mic-E status text field. A suitable position will cause the APRS display software to override any position data the Mic-E has encoded. This is useful if using a Mic-E without a GPS receiver.
 
-## Uses
-- Indicating operator status (e.g., "En route", "At home", "QRT")
-- Reporting equipment state (e.g., "Low battery", "WX station online")
-- Providing additional context (e.g., event participation, emergency status)
-- Including location hints (e.g., grid square, city name)
+Note: The Kenwood radios automatically insert a special type code at the front of the status text string (i.e. in the 10th character of the Information field):
 
-## Example
-A Mic-E packet with a status text:
-```
-@123456z4903.50N/07201.75W>En route to event
-```
-In this example, "En route to event" is the status text, providing context about the operator's current activity.
+| Radio | Type Code |
+| --- | --- |
+| Kenwood TH-D7 | `>` |
+| Kenwood TM-D700 | `]` |
 
----
+These characters should not be confused with the APRS Data Type Identifier that appears at the start of reports.
 
-The status text in Mic-E packets enhances the utility of APRS by allowing stations to share more than just position, making communications richer and more informative.
+It is envisaged that other Mic-E-compatible devices will be allocated their own type codes in future.
+
+Note: When Kenwood radios receive the status, they can only display a small number of text characters:
+
+| Radio | Character Limit |
+| --- | --- |
+| Kenwood TH-D7 | 20 characters |
+| Kenwood TM-D700 | 28 characters |
+
+Note: The Kenwood TM-D700 radio uses the `'` (apostrophe) instead of the `‘` (grave) APRS Data Type Identifier to represent current GPS data. A suggested way of detecting this situation is to examine the first and 10th characters of the Information field; if they are `'` and `]` respectively, then the packet is almost certainly from a TM-D700.

@@ -5,33 +5,17 @@ title: Use of Timestamps
 
 # {{$frontmatter.order}} {{ $frontmatter.title }}
 
-Timestamps in APRS packets indicate when a particular event, position, or observation was recorded. They are important for ensuring the relevance and accuracy of the data, especially in dynamic or mobile environments.
+When a station transmits a report without a timestamp, an APRS receiving station can make an internal record of the time it was received, if required. This record is the receiving station's notion of the time the report was created.
 
-## Why Use Timestamps?
-- To provide context for position, weather, or status reports
-- To allow receivers to determine the freshness of the data
-- To synchronize data from multiple sources
+On the other hand, when a station transmits a report with a timestamp, that timestamp represents the transmitting station's notion of the time the report was created.
 
-## Where Timestamps Appear
-- At the beginning of the information field, after the data type identifier (e.g., '@', '/', or '!')
-- In position reports, weather reports, and some telemetry packets
+In other words, reports sent without a timestamp can be regarded as real-time, "current" reports (and the receiving station has to record the time they were received), whereas reports sent with a timestamp may or may not be real-time, and may possibly be (very) "old".
 
-## Interpreting Timestamps
-- Timestamps may be in UTC (Zulu, 'z') or local time ('h')
-- The format (DHM, HMS, MDHM) determines how to read the date and time
-- If no timestamp is present, the time of reception is assumed
+Four APRS Data Type Identifiers specify whether or not a report contains a timestamp, depending on whether the station has APRS messaging capability or not:
 
-## When Are Timestamps Required?
-- Timestamps are optional in many APRS packets, but are recommended for mobile or time-sensitive data
-- Some packet types (e.g., status reports) may omit timestamps if the timing is not critical
+| Type of Report | No APRS Messaging | With APRS Messaging |
+| :--- | :---: | :---: |
+| (Current/real-time) Report without timestamp | ! | = |
+| (Old/non-real-time) Report with timestamp | / | @ |
 
-## Example
-A position report with a timestamp:
-```
-/APRS>APRS,TCPIP*: @231530z4903.50N/07201.75W>Test station
-```
-Here, `@231530z` is the timestamp (23rd day, 15:30 UTC).
-
----
-
-Timestamps help ensure that APRS data is timely and actionable, especially in fast-changing situations.
+Stations without APRS messaging capability are typically stand-alone trackers or digipeaters. Stations reporting without a timestamp are generally (but not necessarily) fixed stations.

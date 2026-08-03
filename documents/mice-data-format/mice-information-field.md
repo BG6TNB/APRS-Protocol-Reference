@@ -5,27 +5,13 @@ title: Mic-E Information Field
 
 # {{$frontmatter.order}} {{ $frontmatter.title }}
 
-The Mic-E information field in APRS encodes longitude, speed, course, status, and optional telemetry data in a compact format. This field is essential for reconstructing the full position and status of a Mic-E station.
+The Information field is used to complete the Position Report that was begun in the Destination Address field. The encoding used is different from the destination address since the content is not constrained to be printable, shifted 7-bit ASCII, as it is in the address. However, full 8-bit binary is not used — all values are offset by 28 and further operations (described below) are performed on some of the values to make almost all of the data printable ASCII.
 
-## How is the Information Field Encoded?
-- Longitude is encoded using a combination of ASCII characters and offset indicators
-- Speed and course are encoded in specific bytes
-- Status message or telemetry data may be appended
+The format of the Information field is as follows:
 
-## Example
-A Mic-E information field (conceptual):
-```
-"`l4!>\"Test"
-```
-This encodes:
-- Longitude, speed, course
-- Status message: "Test"
+Mic-E Data — INFORMATION FIELD Format
 
-## Usage Notes
-- Decoding requires knowledge of the Mic-E encoding scheme
-- Most APRS software can decode the information field automatically
-- The information field, combined with the destination address, provides a complete position and status report
-
----
-
-The Mic-E information field enables efficient, detailed reporting in APRS packets.
+| Longitude | Speed and Course | | | | Symbol Code | Sym Table ID | Mic-E Telemetry Data / Mic-E Status Text |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| d+28 | m+28 | h+28 | SP+28 | DC+28 | SE+28 | Symbol Code | Sym Table ID | Mic-E Status Text |
+| Bytes: 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | n |

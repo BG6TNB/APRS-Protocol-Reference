@@ -5,21 +5,212 @@ title: Longitude Degrees Encoding
 
 # {{$frontmatter.order}} {{ $frontmatter.title }}
 
-In the Mic-E protocol, longitude degrees are encoded as part of the compressed position information in the information field. This encoding allows for efficient transmission of geographic coordinates in APRS packets.
+The d+28 byte in the Information field contains the encoded value of the longitude degrees, in the range 0–179 degrees.
 
-## What is Longitude Degrees Encoding?
-- Longitude degrees represent the whole number part of the longitude coordinate (e.g., 072 in 07201.75W).
-- In Mic-E, this value is encoded into specific bytes or characters within the information field, often using a combination of ASCII values and offsets.
+(Note that for longitude values in the range 0–9 degrees, the longitude offset is +100 degrees):
 
-## How is it Encoded?
-- The longitude degrees are typically encoded by converting the numeric value to a character or byte, sometimes with an offset to ensure the result is a printable character.
-- The exact method depends on the Mic-E specification and may involve splitting the longitude into degrees, minutes, and hundredths of minutes, each encoded separately.
+**Mic-E Longitude Degrees Encoding**
 
-## Example
-For a longitude of 072 degrees:
-- The degrees value (72) is encoded according to the Mic-E format, possibly as a single character or as part of a multi-character sequence.
-- The receiving station decodes this character back to the numeric value to reconstruct the longitude.
+| Long Deg | ASCII Char | d+28 | Long Offset |
+| :---: | :---: | :---: | :---: |
+| 0   | v   | 118 | +100 |
+| 1   | w   | 119 | +100 |
+| 2   | x   | 120 | +100 |
+| 3   | y   | 121 | +100 |
+| 4   | z   | 122 | +100 |
+| 5   | {   | 123 | +100 |
+| 6   | \|  | 124 | +100 |
+| 7   | }   | 125 | +100 |
+| 8   | ~   | 126 | +100 |
+| 9   | DEL | 127 | +100 |
+| 10  | &   | 38  | +0   |
+| 11  | '   | 39  | +0   |
+| 12  | (   | 40  | +0   |
+| 13  | )   | 41  | +0   |
+| 14  | *   | 42  | +0   |
+| 15  | +   | 43  | +0   |
+| 16  | ,   | 44  | +0   |
+| 17  | -   | 45  | +0   |
+| 18  | .   | 46  | +0   |
+| 19  | /   | 47  | +0   |
+| 20  | 0   | 48  | +0   |
+| 21  | 1   | 49  | +0   |
+| 22  | 2   | 50  | +0   |
+| 23  | 3   | 51  | +0   |
+| 24  | 4   | 52  | +0   |
+| 25  | 5   | 53  | +0   |
+| 26  | 6   | 54  | +0   |
+| 27  | 7   | 55  | +0   |
+| 28  | 8   | 56  | +0   |
+| 29  | 9   | 57  | +0   |
+| 30  | :   | 58  | +0   |
+| 31  | ;   | 59  | +0   |
+| 32  | <   | 60  | +0   |
+| 33  | =   | 61  | +0   |
+| 34  | >   | 62  | +0   |
+| 35  | ?   | 63  | +0   |
+| 36  | @   | 64  | +0   |
+| 37  | A   | 65  | +0   |
+| 38  | B   | 66  | +0   |
+| 39  | C   | 67  | +0   |
+| 40  | D   | 68  | +0   |
+| 41  | E   | 69  | +0   |
+| 42  | F   | 70  | +0   |
+| 43  | G   | 71  | +0   |
+| 44  | H   | 72  | +0   |
+| 45  | I   | 73  | +0   |
+| 46  | J   | 74  | +0   |
+| 47  | K   | 75  | +0   |
+| 48  | L   | 76  | +0   |
+| 49  | M   | 77  | +0   |
+| 50  | N   | 78  | +0   |
+| 51  | O   | 79  | +0   |
+| 52  | P   | 80  | +0   |
+| 53  | Q   | 81  | +0   |
+| 54  | R   | 82  | +0   |
+| 55  | S   | 83  | +0   |
+| 56  | T   | 84  | +0   |
+| 57  | U   | 85  | +0   |
+| 58  | V   | 86  | +0   |
+| 59  | W   | 87  | +0   |
+| 60  | X   | 88  | +0   |
+| 61  | Y   | 89  | +0   |
+| 62  | Z   | 90  | +0   |
+| 63  | [   | 91  | +0   |
+| 64  | \   | 92  | +0   |
+| 65  | ]   | 93  | +0   |
+| 66  | ^   | 94  | +0   |
+| 67  | _   | 95  | +0   |
+| 68  | `   | 96  | +0   |
+| 69  | a   | 97  | +0   |
+| 70  | b   | 98  | +0   |
+| 71  | c   | 99  | +0   |
+| 72  | d   | 100 | +0   |
+| 73  | e   | 101 | +0   |
+| 74  | f   | 102 | +0   |
+| 75  | g   | 103 | +0   |
+| 76  | h   | 104 | +0   |
+| 77  | i   | 105 | +0   |
+| 78  | j   | 106 | +0   |
+| 79  | k   | 107 | +0   |
+| 80  | l   | 108 | +0   |
+| 81  | m   | 109 | +0   |
+| 82  | n   | 110 | +0   |
+| 83  | o   | 111 | +0   |
+| 84  | p   | 112 | +0   |
+| 85  | q   | 113 | +0   |
+| 86  | r   | 114 | +0   |
+| 87  | s   | 115 | +0   |
+| 88  | t   | 116 | +0   |
+| 89  | u   | 117 | +0   |
+| 90  | v   | 118 | +0   |
+| 91  | w   | 119 | +0   |
+| 92  | x   | 120 | +0   |
+| 93  | y   | 121 | +0   |
+| 94  | z   | 122 | +0   |
+| 95  | {   | 123 | +0   |
+| 96  | \|  | 124 | +0   |
+| 97  | }   | 125 | +0   |
+| 98  | ~   | 126 | +0   |
+| 99  | DEL | 127 | +0   |
+| 100 | l   | 108 | +100 |
+| 101 | m   | 109 | +100 |
+| 102 | n   | 110 | +100 |
+| 103 | o   | 111 | +100 |
+| 104 | p   | 112 | +100 |
+| 105 | q   | 113 | +100 |
+| 106 | r   | 114 | +100 |
+| 107 | s   | 115 | +100 |
+| 108 | t   | 116 | +100 |
+| 109 | u   | 117 | +100 |
+| 110 | &   | 38  | +100 |
+| 111 | '   | 39  | +100 |
+| 112 | (   | 40  | +100 |
+| 113 | )   | 41  | +100 |
+| 114 | *   | 42  | +100 |
+| 115 | +   | 43  | +100 |
+| 116 | ,   | 44  | +100 |
+| 117 | -   | 45  | +100 |
+| 118 | .   | 46  | +100 |
+| 119 | /   | 47  | +100 |
+| 120 | 0   | 48  | +100 |
+| 121 | 1   | 49  | +100 |
+| 122 | 2   | 50  | +100 |
+| 123 | 3   | 51  | +100 |
+| 124 | 4   | 52  | +100 |
+| 125 | 5   | 53  | +100 |
+| 126 | 6   | 54  | +100 |
+| 127 | 7   | 55  | +100 |
+| 128 | 8   | 56  | +100 |
+| 129 | 9   | 57  | +100 |
+| 130 | :   | 58  | +100 |
+| 131 | ;   | 59  | +100 |
+| 132 | <   | 60  | +100 |
+| 133 | =   | 61  | +100 |
+| 134 | >   | 62  | +100 |
+| 135 | ?   | 63  | +100 |
+| 136 | @   | 64  | +100 |
+| 137 | A   | 65  | +100 |
+| 138 | B   | 66  | +100 |
+| 139 | C   | 67  | +100 |
+| 140 | D   | 68  | +100 |
+| 141 | E   | 69  | +100 |
+| 142 | F   | 70  | +100 |
+| 143 | G   | 71  | +100 |
+| 144 | H   | 72  | +100 |
+| 145 | I   | 73  | +100 |
+| 146 | J   | 74  | +100 |
+| 147 | K   | 75  | +100 |
+| 148 | L   | 76  | +100 |
+| 149 | M   | 77  | +100 |
+| 150 | N   | 78  | +100 |
+| 151 | O   | 79  | +100 |
+| 152 | P   | 80  | +100 |
+| 153 | Q   | 81  | +100 |
+| 154 | R   | 82  | +100 |
+| 155 | S   | 83  | +100 |
+| 156 | T   | 84  | +100 |
+| 157 | U   | 85  | +100 |
+| 158 | V   | 86  | +100 |
+| 159 | W   | 87  | +100 |
+| 160 | X   | 88  | +100 |
+| 161 | Y   | 89  | +100 |
+| 162 | Z   | 90  | +100 |
+| 163 | [   | 91  | +100 |
+| 164 | \   | 92  | +100 |
+| 165 | ]   | 93  | +100 |
+| 166 | ^   | 94  | +100 |
+| 167 | _   | 95  | +100 |
+| 168 | `   | 96  | +100 |
+| 169 | a   | 97  | +100 |
+| 170 | b   | 98  | +100 |
+| 171 | c   | 99  | +100 |
+| 172 | d   | 100 | +100 |
+| 173 | e   | 101 | +100 |
+| 174 | f   | 102 | +100 |
+| 175 | g   | 103 | +100 |
+| 176 | h   | 104 | +100 |
+| 177 | i   | 105 | +100 |
+| 178 | j   | 106 | +100 |
+| 179 | k   | 107 | +100 |
 
----
+Note from the table that the encoding is split into four separate pieces:
 
-Longitude degrees encoding is a key part of the Mic-E position compression scheme, enabling efficient and compact transmission of location data.
+- 0–9 degrees: d+28 is in the range 118–127 decimal, corresponding to the ASCII characters `v` to `DEL`.
+
+**Important Note:** The longitude offset is set to +100 degrees when the longitude is in the range 0–9 degrees.
+
+- 10–99 degrees: d+28 is in the range 38–127 decimal (corresponding to the ASCII characters `&` to `DEL`), and the longitude offset is +0 degrees.
+- 100–109 degrees: d+28 is in the range 108–117 decimal, corresponding to the ASCII characters `l` (lower-case letter "L") to `DEL`, and the longitude offset is +100 degrees.
+- 110–179 degrees: d+28 is in the range 38–127 decimal (corresponding to the ASCII characters `&` to `DEL`), and the longitude offset is +100 degrees.
+
+Thus the overall range of valid d+28 values is 38–127 decimal (corresponding to ASCII characters `&` to `DEL`).
+
+All of these characters (except `DEL`, for 9 and 99 degrees) are printable ASCII characters.
+
+To decode the longitude degrees value:
+
+1. subtract 28 from the d+28 value to obtain d.
+2. if the longitude offset is +100 degrees, add 100 to d.
+3. subtract 80 if 180 ≤ d ≤ 189 (i.e. the longitude is in the range 100–109 degrees).
+4. or, subtract 190 if 190 ≤ d ≤ 199 (i.e. the longitude is in the range 0–9 degrees).

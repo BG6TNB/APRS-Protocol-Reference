@@ -18,6 +18,13 @@ APRS reports can contain data relating to tropical storms, hurricanes and tropic
 | Radius Tropical Storm Winds &rrr | Radius of tropical storm winds (in nautical miles) |
 | Radius Whole Gale %ggg | Radius of "whole gale" (i.e. 50 knot) winds (in nautical miles, optional) |
 
+Storm data will usually be included in an Object Report, but may also be included in a Position Report or an Item Report.
+
+The display symbol will be either:
+
+- `\@` Hurricane/Tropical Storm (current position)
+- `/@` Hurricane (predicted future position)
+
 **Example:**
 ```
 ;BRENDAVVV*092345z4903.50N/07202.75W@088/036/HC/150^200/0980>090&030%040
