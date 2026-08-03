@@ -4,9 +4,9 @@ coming soon...
 
 ## TODO
 
-- [ ] Convert PDF to Markdown format and perform manual proofreading and typesetting.
+- [x] Convert PDF to Markdown format and perform manual proofreading and typesetting.
+- [x] Add Chinese translation (other language translations are welcome, see below for ways to contribute).
 - [ ] Optimize Search Engine Optimization.
-- [ ] Add Chinese translation (other language translations are welcome, see below for ways to contribute).
 
 ## Contribute
 

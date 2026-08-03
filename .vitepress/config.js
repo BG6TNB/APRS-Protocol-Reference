@@ -12,6 +12,8 @@ export default defineConfig({
     title: 'APRS Protocol Reference',
     description: 'Modernized document based on APRS101.PDF',
 
+    base: '/APRS-Protocol-Reference/',
+
     locales: {
         root: {
             label: 'English',
